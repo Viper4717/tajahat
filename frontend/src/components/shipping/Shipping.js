@@ -5,14 +5,6 @@ import { Link } from 'react-router-dom';
 import { ShippingContext } from '../../Contexts';
 import history from '../../History';
 
-function loadShippingInfoFromStorage(setShippingInfo){
-    var storageShippingInfo = localStorage.getItem("shippingInfo");
-    storageShippingInfo = JSON.parse(storageShippingInfo);
-    if(storageShippingInfo != null && storageShippingInfo.length){
-        setShippingInfo(storageShippingInfo);
-    }
-}
-
 function Shipping() {
 
     const [shippingInfo, setShippingInfo] = useContext(ShippingContext);
@@ -24,14 +16,20 @@ function Shipping() {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        loadShippingInfoFromStorage(setShippingInfo);
-    },)
+    }, [])
 
     useEffect(() => {
-        setName(shippingInfo.name);
-        setPhone(shippingInfo.phone);
-        setAddress(shippingInfo.address);
-    },)
+        if(shippingInfo != null){
+            setName(shippingInfo.name);
+            setPhone(shippingInfo.phone);
+            setAddress(shippingInfo.address);
+        }
+        else{
+            setName("Enter name");
+            setPhone("Enter number");
+            setAddress("Enter address");
+        }
+    }, [shippingInfo])
 
     function validatePhone(phone){
         const re = /^(\+88)?(01[3-9]{1}\d{8}$)/
@@ -49,7 +47,7 @@ function Shipping() {
 
     function handleSubmit(e){
         e.preventDefault();
-        if(phone && address){
+        if(name && phone && address){
             setError(null);
             if(!validatePhone(phone) || address.length < 10){
                 window.scrollTo(0, 0);
@@ -64,8 +62,8 @@ function Shipping() {
                 };
                 setShippingInfo(newShippingInfo);
                 localStorage.setItem("shippingInfo", JSON.stringify(newShippingInfo));
+                console.log("Shipping info saved.");
                 setError(null);
-                history.push("/confirmation");
             }
         }
         else{
@@ -86,21 +84,21 @@ function Shipping() {
                     {error}
                 </Alert>}
                 <Form onSubmit={handleSubmit}>
-                    <Form.Group>
+                    <Form.Group className="mb-3">
                         <Form.Label>Name</Form.Label>
-                        <Form.Control type="text" placeholder="Enter name" defaultValue={shippingInfo.name} onChange={handleName}/>
+                        <Form.Control type="text" placeholder="Enter name" defaultValue={name} onChange={handleName}/>
                     </Form.Group>
-                    <Form.Group>
+                    <Form.Group className="mb-3">
                         <Form.Label>Phone Number</Form.Label>
-                        <Form.Control type="tel" placeholder="Enter number" defaultValue={shippingInfo.phone} onChange={handlePhone}/>
+                        <Form.Control type="tel" placeholder="Enter number"  defaultValue={phone} onChange={handlePhone}/>
                         {(phone && !validatePhone(phone)) &&
                         <Form.Text className="warnText">
                             Enter a valid number.
                         </Form.Text>}
                     </Form.Group>
-                    <Form.Group>
+                    <Form.Group className="mb-3">
                         <Form.Label>Address</Form.Label>
-                        <Form.Control type="text" placeholder="Enter address" defaultValue={shippingInfo.address} onChange={handleAddress} />
+                        <Form.Control type="text" placeholder="Enter address"  defaultValue={address} onChange={handleAddress} />
                         {(address && address.length < 10) &&
                         <Form.Text className="warnText">
                             Address must be minimum 10 characters long.
@@ -110,7 +108,7 @@ function Shipping() {
                         <Button className="backToCartBtn" variant="custom" as={Link} to="/cart">
                             Back to Cart
                         </Button>
-                        <Button className="continueToConfirmBtn" variant="custom" type="submit">
+                        <Button className="continueToConfirmBtn" variant="custom" type="submit" as={Link} to="/payment" >
                             Continue
                         </Button>
                     </div>

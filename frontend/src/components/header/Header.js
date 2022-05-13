@@ -4,7 +4,6 @@ import HeaderLogo from '../../assets/header/TajahatHeader.png'
 import MobileHeaderLogo from '../../assets/header/nilkhetianMobileLogoHeader.svg'
 import { Navbar, Nav, Container, Badge} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { BsCircleFill } from 'react-icons/bs';
 import { CartContext } from '../../Contexts';
 
 function Header() {

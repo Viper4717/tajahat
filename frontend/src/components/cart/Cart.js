@@ -4,7 +4,7 @@ import EmptyCartImage from '../../assets/cart/emptyCartImage.png'
 import { Container, Button, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import CartItem from './CartItem';
-import { CartContext, UserContext } from '../../Contexts';
+import { CartContext } from '../../Contexts';
 
 function Cart() {
 
