@@ -1,0 +1,88 @@
+.itemCard{
+    padding: 15px;
+    height: 350px;
+    margin: 10px;
+    background-color: #eef1d4 !important;
+}
+.itemCardDiv{
+    height: 270px;
+    position: relative;
+}
+.itemImageBg{
+    height: 170px;
+    overflow: hidden;
+    text-align: center;
+}
+.itemImage{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+.itemDetailsBg{
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+}
+.itemTitle{
+    text-align: center;
+    font-size: 1.2em !important;
+    font-weight: 600 !important;
+    margin-top: 20px !important;
+    margin-bottom: 10px !important;
+}
+.itemPrice{
+    text-align: center;
+    font-size: 1em !important;
+    font-weight: 500 !important;
+    margin-bottom: 10px !important;
+}
+.addToCartButton{
+    font-size: 1.1em !important;
+    font-weight: 600 !important;
+    width: 100%;
+    position: relative;
+    margin: auto;
+}
+.btn-remove {
+    background-color: #f7bc45!important;
+    color: white !important;
+}
+.btn-remove:hover {
+    background-color: #fff59d!important;
+    color: black !important;
+}
+.btn-remove:disabled{
+    background-color: #aadbff !important;
+    color: black !important;
+}
+@media screen and (max-width: 768px){
+    .itemCard{
+        height: 50%;
+        width: 50%;
+        display: inline-block !important;
+        overflow: hidden;
+    }
+    .itemCardDiv{
+        height: 50%;
+    }
+    .itemImageBg{
+        height: 50%;
+    }
+    .itemDetailsBg{
+        height: 50%;
+    }
+    .itemTitle{
+        font-size: 0.9em !important;
+        font-weight: 600 !important;
+        margin-top: 10px !important;
+        margin-bottom: 0.2rem !important;
+    }
+    .itemPrice{
+        font-size: 0.8em !important;
+        font-weight: 500 !important;
+        margin-bottom: 0.5rem;
+    }
+    .addToCartButton{
+        font-size: 0.8em !important;
+    }
+}

@@ -1,0 +1,167 @@
+.signInText{
+    color: #388e3c;
+    text-align: center;
+    font-size: 1.5em !important;
+    font-weight: 600 !important;
+    margin-top: 70px !important;
+}
+.emptyDiv{
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+}
+.emptyText{
+    color: #388e3c;
+    text-align: center;
+    font-size: 1.2em !important;
+    font-weight: 600 !important;
+    margin-bottom: 0 !important;
+}
+.cartBodyDiv{
+    background-color: #eef1d4;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 50px;
+}
+.cartBodyDiv > div{
+    width: 90%;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.cartDivHeader{
+    display: flex;
+    position: relative;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+.itemDiv{
+    width: 60%;
+    margin-left: 30px;
+}
+.unitDiv{
+    width: 25%;
+    text-align: center;
+}
+.priceDiv{
+    width: 15%;
+    margin-right: 30px;
+    text-align: center;
+}
+.cartDivFooter{
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+    font-weight: 600;
+}
+.emptyItemDiv{
+    width: 70%;
+    margin-left: 30px;
+}
+.labelDiv{
+    width: 15%;
+    text-align: center;
+    line-height: 2em;
+}
+.numberDiv{
+    width: 15%;
+    margin-right: 30px;
+    text-align: center;
+    line-height: 2em;
+}
+.totalBillDiv{
+    margin-top: 30px !important;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.5em;
+}
+.bottomButtonDiv{
+    margin-top: 50px !important;
+    text-align: center;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+}
+.backToLibraryBtn{
+    font-size: 1.1em !important;
+    font-weight: 600 !important;
+    margin-left: 15px;
+}
+.continueToShippingBtn{
+    font-size: 1.1em !important;
+    font-weight: 600 !important;
+    margin-right: 15px;
+}
+.loginPromptDiv{
+    padding-right: 15px;
+    margin-top: 10px !important;
+    text-align: right;
+    color: red;
+}
+
+@media screen and (max-width: 768px){
+    .emptyDiv{
+        margin-top: 30px;
+        padding: 0px 15px;
+    }
+    .emptyText{
+        font-size: 1em !important;
+    }
+    .cartBodyDiv{
+        margin-bottom: 30px;
+    }
+    .cartBodyDiv > div{
+        width: 100%;
+    }
+    .cartDivHeader{
+        font-size: 0.7em;
+        margin-top: 30px;
+    }
+    .itemDiv{
+        margin-left: 20px;
+        font-size: 1.4em;
+    }
+    .unitDiv{
+        font-size: 1.4em;
+    }
+    .priceDiv{
+        margin-right: 20px;
+        font-size: 1.4em;
+    }
+    .cartDivFooter{
+        font-size: 0.7em;
+    }
+    .emptyItemDiv{
+        width: 0%;
+    }
+    .cartDivFooter{
+        font-size: 0.8em;
+    }
+    .labelDiv{
+        width: 50%;
+        text-align: right;
+        margin-right: 5px;
+    }
+    .numberDiv{
+        width: 50%;
+        text-align: left;
+        margin-left: 5px;
+        margin-right: 0px;
+    }
+    .totalBillDiv{
+        margin-top: 30px !important;
+        font-size: 1.1em;
+    }
+    .bottomButtonDiv{
+        margin-top: 30px !important;
+    }
+    .backToLibraryBtn{
+        font-size: 0.8em !important;
+    }
+    .continueToShippingBtn{
+        font-size: 0.8em !important;
+    }
+    .loginPromptDiv{
+        font-size: 0.8em;
+    }
+}

@@ -1,0 +1,99 @@
+.parentContainer{
+    position: relative !important;
+    min-height: 100vh;
+}
+.padBottomContainer{
+    padding-bottom: 30px !important;
+}
+.carousalImage{
+    width: 100%;
+    height: 500px;
+}
+.homeBodyContainer{
+    margin-top: 50px;
+}
+.homeBody{
+    margin-top: 50px;
+    position: relative !important;
+    display: flex;
+}
+.homeBodyImageDivLeft{
+    text-align: left;
+    width: 50%;
+}
+.homeBodyImageDivRight{
+    text-align: right;
+    width: 50%;
+}
+.hiddenHomeBodyImageDiv{
+    display: none;
+}
+.homeImage{
+    width: 500px;
+    height: 300px;
+}
+.homeBodyText{
+    font-size: 20px;
+    width: 50%;
+}
+.orderButtonDiv{
+    margin-top: 50px;
+    text-align: center;
+}
+.orderButton{
+    font-size: 1.5em !important;
+    font-weight: 600 !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    position: relative;
+    margin: auto;
+}
+
+@media screen and (max-width: 768px){
+    .parentContainer{
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+    .padBottomContainer{
+        padding-bottom: 10px !important;
+    }
+    .carousalImage{
+        height: 300px;
+    }
+    .homeBodyContainer{
+        margin-top: 0px;
+    }
+    .homeBody{
+        margin-top: 0px;
+        display: block;
+    }
+    .homeBodyImageDivLeft{
+        display: none;
+    }
+    .homeBodyImageDivRight{
+        display: none;
+    }
+    .hiddenHomeBodyImageDiv{
+        display: contents;
+        position: relative !important;
+        width: 100%;
+    }
+    .homeImage{
+        width: 100%;
+        height: 300px;
+    }
+    .homeBodyText{
+        font-size: 0.9em;
+        width: 100%;
+        padding: 10px;
+    }
+    .orderButtonDiv{
+        margin-top: 10px;
+    }
+    .orderButton{
+        font-size: 1.1em !important;
+        font-weight: 500 !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+}

@@ -1,0 +1,20 @@
+.backToCartBtn{
+    font-size: 1.1em !important;
+    font-weight: 600 !important;
+}
+.continueToConfirmBtn{
+    font-size: 1.1em !important;
+    font-weight: 600 !important;
+}
+.warnText{
+    color: red;
+    font-weight: 600;
+}
+@media screen and (max-width: 768px){
+    .backToCartBtn{
+        font-size: 0.8em !important;
+    }
+    .continueToConfirmBtn{
+        font-size: 0.8em !important;
+    }
+}
