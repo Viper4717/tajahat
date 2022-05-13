@@ -9,6 +9,11 @@
     background-color: #fff59d !important;
     color: black !important;
 }
+.btn-custom:disabled, .btn-custom[disabled] {
+    background-color: #e3ebd9 !important;
+    color: black !important;
+    border: 1px solid #8bc34a;
+}
 .nav-link:link{
     position: relative;
     color: white !important;

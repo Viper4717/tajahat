@@ -1,3 +1,11 @@
+.loadingDiv{
+    margin-top: 50px;
+    text-align: center;
+}
+.loadingText{
+    margin-top: 20px;
+    font-weight: 600;
+}
 .orderBody{
     display: flex;
     flex-wrap: wrap;

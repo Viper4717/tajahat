@@ -78,6 +78,12 @@
     font-weight: 600;
     font-size: 1.5em;
 }
+.incorrectOrderDiv{
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2em;
+    color: red;
+}
 .bottomButtonDiv{
     margin-top: 50px !important;
     text-align: center;
@@ -101,7 +107,6 @@
     text-align: right;
     color: red;
 }
-
 @media screen and (max-width: 768px){
     .emptyDiv{
         margin-top: 30px;
@@ -154,6 +159,9 @@
     .totalBillDiv{
         margin-top: 30px !important;
         font-size: 1.1em;
+    }
+    .incorrectOrderDiv{
+        font-size: 0.9em;
     }
     .bottomButtonDiv{
         margin-top: 30px !important;

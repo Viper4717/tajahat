@@ -13,7 +13,7 @@ function ItemCard({itemId, itemImgPath, itemName, itemPrice}) {
             name: itemName,
             imgPath: itemImgPath,
             price: itemPrice,
-            amount: 10,
+            amount: 5,
         };
         const newCart = [...cart, newCartItem];
         setCart(newCart);

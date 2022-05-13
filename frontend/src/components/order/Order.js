@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './Order.css';
-import { Container } from 'react-bootstrap';
+import { Container, Spinner } from 'react-bootstrap';
 import ItemCard from '../itemCard/ItemCard';
 import cardMangoImage from '../../assets/order/cardMangoImage.jpg';
+import Axios from 'axios';
 
 const items = [
     {
@@ -59,11 +60,30 @@ const items = [
 
 function loadItems(setItems){
     setItems(items);
+
+    // setLoading(true);
+    // Axios
+    // .get(`${serverUrl}/stores?page=${currentPageNo}`)
+    // .then(({data: res}) => {
+    //   const newItems = res.results.map((item) => ({
+    //     itemId: item.itemId,
+    //     itemName: item.itemName,
+    //     itemImgPath: (item.img? serverUrl+item.img : cardMangoImage),
+    //     itemPrice: item.itemPrice,
+    //   }));
+    //   setItems(newItems);
+    //   setLoading(false);
+    // })
+    // .catch((error) => {
+    //   console.error(error);
+    //   console.log('failed to load items');
+    // });
 }
 
 function Order() {
 
     const [items, setItems] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -72,11 +92,18 @@ function Order() {
 
     return (
         <Container fluid="md" className="parentContainer">
+            {loading?
+            <div className="loadingDiv">
+              <Spinner animation="border" role="status"/>
+              <h4 className="loadingText"> Loading... </h4>
+            </div>
+            :
             <div className="orderBody">
                 {items.map(item => (
                     <ItemCard itemId={item.itemId} itemImgPath={cardMangoImage} itemName={item.itemName} itemPrice={item.itemPrice}/>
                 ))}
             </div>
+            }
         </Container>
     );
 }

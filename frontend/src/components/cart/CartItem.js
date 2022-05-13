@@ -21,13 +21,13 @@ function CartItem({itemId, itemName, itemImgPath, itemAmount, itemPrice}) {
     }
     const increaseQty = () =>{
         if(amount < 99){
-            const newAmount = amount + 10;
+            const newAmount = amount + 5;
             modifyAmount(newAmount);
         }
     }
     const decreaseQty = () =>{
-        if(amount > 10){
-            const newAmount = amount - 10;
+        if(amount > 5){
+            const newAmount = amount - 5;
             modifyAmount(newAmount);
         }
     }

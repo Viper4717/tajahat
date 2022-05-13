@@ -11,11 +11,22 @@ function Cart() {
     const [cart, setCart] = useContext(CartContext);
     const [productCost, setCost] = useState(
         cart.reduce((acc, item) => acc + (item.amount * item.price), 0));
+    const [totalAmount, setTotalAmount] = useState(
+        cart.reduce((acc, item) => acc + item.amount, 0));
     const shippingCost = 50;
+    const [incorrectOrder, setInCorrectOrder] = useState(true);
 
     useEffect(() => {
         const newCost = cart.reduce((acc, item) => acc + (item.amount * item.price), 0);
         setCost(newCost);
+        const newTotalAmount = cart.reduce((acc, item) => acc + item.amount, 0);
+        setTotalAmount(newTotalAmount);
+        if(newTotalAmount < 20){
+            setInCorrectOrder(true);
+        }
+        else{
+            setInCorrectOrder(false);
+        }
     }, [cart])
 
     useEffect(() => {
@@ -59,13 +70,18 @@ function Cart() {
                         </div>
                     </div>
                     <div className="totalBillDiv">
-                        Total Bill: {productCost + shippingCost} ৳
+                        Total Bill: {productCost + shippingCost} ৳ <br/>
                     </div>
+                    {incorrectOrder &&
+                        <div className="incorrectOrderDiv">
+                            Minimum order is 20kg
+                        </div>
+                    }
                     <div className="bottomButtonDiv">
                         <Button className="backToLibraryBtn" variant="custom" as={Link} to="/order">
                             Back to Order
                         </Button>
-                        <Button className="continueToShippingBtn" variant="custom"
+                        <Button className="continueToShippingBtn" variant="custom" disabled={incorrectOrder}
                             as={Link} to="/shipping">
                                 Continue
                         </Button>
