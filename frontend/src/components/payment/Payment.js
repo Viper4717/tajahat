@@ -16,6 +16,8 @@ function Payment() {
     const [cart, setCart] = useContext(CartContext);
     const [productCost, setCost] = useState(
         cart.reduce((acc, item) => acc + (item.amount * item.price), 0));
+    const [totalAmount, setTotalAmount] = useState(
+        cart.reduce((acc, item) => acc + item.amount, 0));
     const [shippingInfo, setShippingInfo] = useContext(ShippingContext);
     const [orderSuccess, setOrderSuccess] = useState(false);
 
@@ -31,13 +33,12 @@ function Payment() {
         else{
             setError(null);
             setLoading(true);
-            const newCart = [...cart];
-            newCart = newCart.map(item => {item.price = item.price * item.amount})
             const orderObject = {
                 name: shippingInfo.name,
                 phone: shippingInfo.phone,
                 address: shippingInfo.address,
-                order_list: newCart,
+                order_list: cart,
+                total_amount: totalAmount,
                 total_price: productCost,
                 transaction_id: transactionId,
             }
