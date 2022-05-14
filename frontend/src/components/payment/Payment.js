@@ -96,6 +96,10 @@ function Payment() {
                             <Form.Group className="mb-3">
                                 <Form.Label>Your Payment TrxID / Transaction ID</Form.Label>
                                 <Form.Control type="text" placeholder="Enter TrxID" onChange={handleTransactionId}/>
+                                {(transactionId && transactionId.length < 10) &&
+                                <Form.Text className="warnText">
+                                    Enter a valid 10 digit Transaction ID.
+                                </Form.Text>}
                             </Form.Group>
                         </Form>
                     </div>

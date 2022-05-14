@@ -17,7 +17,7 @@
     font-weight: 600 !important;
 }
 .warnText{
-    color: red;
+    color: red !important;
     font-weight: 600;
 }
 @media screen and (max-width: 768px){
