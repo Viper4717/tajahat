@@ -23,3 +23,15 @@ export const ShippingProvider = (props) => {
         </ShippingContext.Provider>
     )
 }
+
+export const OrderSuccessContext = React.createContext();
+
+export const OrderSuccessProvider = (props) => {
+    const [orderSuccess, setOrderSuccess] = useState()
+
+    return(
+        <OrderSuccessContext.Provider value = {[orderSuccess, setOrderSuccess]}>
+            {props.children}
+        </OrderSuccessContext.Provider>
+    )
+}

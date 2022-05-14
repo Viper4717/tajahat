@@ -4,17 +4,22 @@ import EmptyCartImage from '../../assets/cart/emptyCartImage.png'
 import { Container, Button, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import CartItem from './CartItem';
-import { CartContext } from '../../Contexts';
+import { CartContext, OrderSuccessContext } from '../../Contexts';
 
 function Cart() {
 
     const [cart, setCart] = useContext(CartContext);
+    const [orderSuccess, setOrderSuccess] = useContext(OrderSuccessContext);
     const [productCost, setCost] = useState(
         cart.reduce((acc, item) => acc + (item.amount * item.price), 0));
     const [totalAmount, setTotalAmount] = useState(
         cart.reduce((acc, item) => acc + item.amount, 0));
     const shippingCost = 50;
     const [incorrectOrder, setInCorrectOrder] = useState(true);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     useEffect(() => {
         const newCost = cart.reduce((acc, item) => acc + (item.amount * item.price), 0);
@@ -30,7 +35,7 @@ function Cart() {
     }, [cart])
 
     useEffect(() => {
-        window.scrollTo(0, 0);
+        setOrderSuccess(false);
     }, [])
 
     return (
@@ -44,6 +49,11 @@ function Cart() {
                     <h4 className="emptyText">
                         It is beautiful, it is endless, it is full and yet seems empty. It hurts us.
                     </h4>
+                    <div className="singleBottomButtonDiv">
+                        <Button className="backToLibraryBtn" variant="custom" as={Link} to="/order">
+                            Back to Order
+                        </Button>
+                    </div>
                 </div>
             }
             {cart.length > 0 &&
@@ -85,24 +95,7 @@ function Cart() {
                             as={Link} to="/shipping">
                                 Continue
                         </Button>
-                        {/* {(user == null || !user.confirmed)?
-                            <Button className="continueToShippingBtn" variant="remove" disabled>
-                                Continue
-                            </Button>:
-                            <Button className="continueToShippingBtn" variant="remove"
-                            as={Link} to="/shipping">
-                                Continue
-                            </Button>
-                        } */}
                     </div>
-                    {/* {user == null &&
-                    <div className="loginPromptDiv">
-                        Please login to continue
-                    </div>}
-                    {(user != null && !user.confirmed) &&
-                    <div className="loginPromptDiv">
-                        Please verify account to continue
-                    </div>} */}
                 </div>
             }
         </Container>

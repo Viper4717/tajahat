@@ -84,6 +84,11 @@
     font-size: 1.2em;
     color: red;
 }
+.singleBottomButtonDiv{
+    margin-top: 50px !important;
+    text-align: center;
+    font-weight: 600;
+}
 .bottomButtonDiv{
     margin-top: 50px !important;
     text-align: center;
@@ -166,6 +171,9 @@
     }
     .incorrectOrderDiv{
         font-size: 0.9em;
+    }
+    .singleBottomButtonDiv{
+        margin-top: 30px !important;
     }
     .bottomButtonDiv{
         margin-top: 30px !important;

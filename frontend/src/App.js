@@ -8,7 +8,8 @@ import Order from './components/order/Order';
 import Cart from './components/cart/Cart';
 import Shipping from './components/shipping/Shipping';
 import Payment from './components/payment/Payment';
-import { CartContext, ShippingContext } from './Contexts';
+import Success from './components/success/Success';
+import { CartContext, ShippingContext, OrderSuccessContext } from './Contexts';
 import history from './History';
 
 function loadCartFromStorage(setCart){
@@ -30,6 +31,7 @@ function App() {
 
     const [cart, setCart] = useContext(CartContext);
     const [shippingInfo, setShippingInfo] = useContext(ShippingContext);
+    const [orderSuccess, setOrderSuccess] = useContext(OrderSuccessContext);
 
     useEffect(() => {
         loadCartFromStorage(setCart);
@@ -46,6 +48,7 @@ function App() {
                     <Route exact path="/cart" element={<Cart/>}/>
                     <Route exact path="/shipping" element={ (cart != null) && (cart.length) ? <Shipping/> : <Navigate to="/cart" /> } />
                     <Route exact path="/payment" element={ (cart != null) && (cart.length) ? <Payment/> : <Navigate to="/cart" /> } />
+                    <Route exact path="/success" element={ orderSuccess ? <Success/> : <Navigate to="/cart" /> } />
                 </Routes>
                 <Footer/>
             </BrowserRouter>

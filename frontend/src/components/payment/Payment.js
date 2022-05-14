@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { useNavigate } from "react-router-dom";
 import './Payment.css';
-import bkashLogo from '../../assets/payment/bkashLogo.png'
-import orderSuccessImage from '../../assets/payment/orderSuccess.png'
+import bkashLogo from '../../assets/payment/bkashLogo.png';
 import { Button, Container, Image, Spinner, Form, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { CartContext,ShippingContext } from '../../Contexts';
+import { CartContext, ShippingContext, OrderSuccessContext } from '../../Contexts';
 import Axios from 'axios';
 import { serverUrl } from '../../util';
 
@@ -19,7 +19,8 @@ function Payment() {
     const [totalAmount, setTotalAmount] = useState(
         cart.reduce((acc, item) => acc + item.amount, 0));
     const [shippingInfo, setShippingInfo] = useContext(ShippingContext);
-    const [orderSuccess, setOrderSuccess] = useState(false);
+    const [orderSuccess, setOrderSuccess] = useContext(OrderSuccessContext);
+    const navigate = useNavigate()
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -31,6 +32,9 @@ function Payment() {
             setError(err);
         }
         else{
+            // setOrderSuccess(true);
+            // navigate("/success");
+
             setError(null);
             setLoading(true);
             const orderObject = {
@@ -45,10 +49,8 @@ function Payment() {
             Axios.post(`${serverUrl}/order/`, orderObject)
             .then(({data: res}) => {
                 setLoading(false);
-                const newCart = [];
-                localStorage.setItem("cart", JSON.stringify(newCart));
-                setCart(newCart);
-                setOrderSuccess(true)
+                setOrderSuccess(true);
+                navigate("/success");
             })
             .catch((error) => {
                 setLoading(false);
@@ -65,7 +67,6 @@ function Payment() {
             <h4 className="signInText">
                 Finalizing your order
             </h4>
-            {!orderSuccess &&
             <div className="paymentInfoDiv">
                 <div className="paymentInfoWhiteDiv">
                     <h5 className="paymentInfoText">
@@ -107,22 +108,7 @@ function Payment() {
                         {loading? <Spinner animation="border" variant="dark"/> : "Confirm Purchase"}
                     </Button>
                 </div>
-            </div>}
-            {orderSuccess &&
-            <div className="paymentInfoDiv">
-                <div className="paymentInfoWhiteDiv">
-                    <Image className="orderSuccessLogo" src={orderSuccessImage} />
-                    <div className="instructionText">
-                        Your order has been placed!
-                    </div>
-                </div>
-                <div className="bottomButtonDiv">
-                    <Button className="backToShippingBtn" variant="custom" as={Link} to="/">
-                        Back to Home
-                    </Button>
-                </div>
             </div>
-            }
         </Container>
     );
 }
