@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { useNavigate } from "react-router-dom";
 import './Shipping.css'
 import { Form, Button, Container, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { ShippingContext } from '../../Contexts';
-import history from '../../History';
 
 function Shipping() {
 
@@ -13,6 +13,7 @@ function Shipping() {
     const [name, setName] = useState();
     const [phone, setPhone] = useState();
     const [address, setAddress] = useState();
+    const navigate = useNavigate()
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -62,9 +63,8 @@ function Shipping() {
                 };
                 setShippingInfo(newShippingInfo);
                 localStorage.setItem("shippingInfo", JSON.stringify(newShippingInfo));
-                console.log("Shipping info saved.");
                 setError(null);
-                window.location.href = "/payment";
+                navigate("/payment");
             }
         }
         else{

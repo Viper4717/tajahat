@@ -30,7 +30,7 @@ function ItemCard({itemId, itemImgPath, itemName, itemPrice}) {
         <Card className="itemCard">
             <div className="itemCardDiv">
                 <div className="itemImageBg">
-                    <Card.Img className="itemImage" src={itemImgPath} alt="Book Image"/>
+                    <Card.Img className="itemImage" src={itemImgPath} alt="Mango Image"/>
                 </div>
                 <div className="itemDetailsBg">
                     <Card.Title className="itemTitle">

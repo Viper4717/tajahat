@@ -112,6 +112,10 @@
         margin-top: 30px;
         padding: 0px 15px;
     }
+    .signInText{
+        font-size: 1.25em !important;
+        margin-top: 30px !important;
+    }
     .emptyText{
         font-size: 1em !important;
     }
