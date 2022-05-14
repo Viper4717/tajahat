@@ -4,6 +4,7 @@ import { Container, Spinner } from 'react-bootstrap';
 import ItemCard from '../itemCard/ItemCard';
 import cardMangoImage from '../../assets/order/cardMangoImage.jpg';
 import Axios from 'axios';
+import { serverUrl } from '../../util';
 
 const items = [
     {
@@ -58,26 +59,27 @@ const items = [
     },
 ]
 
-function loadItems(setItems){
-    setItems(items);
+function loadItems(setItems, setLoading){
+    // setItems(items);
 
-    // setLoading(true);
-    // Axios
-    // .get(`${serverUrl}/stores?page=${currentPageNo}`)
-    // .then(({data: res}) => {
-    //   const newItems = res.results.map((item) => ({
-    //     itemId: item.itemId,
-    //     itemName: item.itemName,
-    //     itemImgPath: (item.img? serverUrl+item.img : cardMangoImage),
-    //     itemPrice: item.itemPrice,
-    //   }));
-    //   setItems(newItems);
-    //   setLoading(false);
-    // })
-    // .catch((error) => {
-    //   console.error(error);
-    //   console.log('failed to load items');
-    // });
+    setLoading(true);
+    Axios
+    .get(`${serverUrl}/product`)
+    .then(({data: res}) => {
+      const newItems = res.results.map((item) => ({
+        itemId: item.id,
+        itemName: item.name,
+        // itemImgPath: (item.img? serverUrl+item.img : cardMangoImage),
+        itemImgPath: cardMangoImage,
+        itemPrice: item.price,
+      }));
+      setItems(newItems);
+      setLoading(false);
+    })
+    .catch((error) => {
+      console.error(error);
+      console.log('failed to load items');
+    });
 }
 
 function Order() {
@@ -87,7 +89,7 @@ function Order() {
 
     useEffect(() => {
         window.scrollTo(0, 0)
-        loadItems(setItems);
+        loadItems(setItems, setLoading);
     }, [])
 
     return (

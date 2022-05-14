@@ -1,1 +1,1 @@
-const serverUrl = process.env.REACT_APP_SERVER_URL || 'http://118.179.145.125:25565';
+const serverUrl = process.env.REACT_APP_SERVER_URL || 'http://127.0.0.1:8000';

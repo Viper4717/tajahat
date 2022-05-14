@@ -64,6 +64,7 @@ function Shipping() {
                 localStorage.setItem("shippingInfo", JSON.stringify(newShippingInfo));
                 console.log("Shipping info saved.");
                 setError(null);
+                window.location.href = "/payment";
             }
         }
         else{
@@ -83,7 +84,7 @@ function Shipping() {
                 <Alert variant='danger'>
                     {error}
                 </Alert>}
-                <Form onSubmit={handleSubmit}>
+                <Form onSubmit={handleSubmit} >
                     <Form.Group className="mb-3">
                         <Form.Label>Name</Form.Label>
                         <Form.Control type="text" placeholder="Enter name" defaultValue={name} onChange={handleName}/>
@@ -108,7 +109,7 @@ function Shipping() {
                         <Button className="backToCartBtn" variant="custom" as={Link} to="/cart">
                             Back to Cart
                         </Button>
-                        <Button className="continueToConfirmBtn" variant="custom" type="submit" as={Link} to="/payment" >
+                        <Button className="continueToConfirmBtn" variant="custom" type="submit" >
                             Continue
                         </Button>
                     </div>
