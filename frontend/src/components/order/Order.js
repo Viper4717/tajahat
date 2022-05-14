@@ -64,13 +64,13 @@ function loadItems(setItems, setLoading){
 
     setLoading(true);
     Axios
-    .get(`${serverUrl}/product`)
+    .get(`${serverUrl}/product/`)
     .then(({data: res}) => {
       const newItems = res.results.map((item) => ({
         itemId: item.id,
         itemName: item.name,
-        // itemImgPath: (item.img? serverUrl+item.img : cardMangoImage),
-        itemImgPath: cardMangoImage,
+        itemImgPath: (item.img? serverUrl+item.img : cardMangoImage),
+        // itemImgPath: cardMangoImage,
         itemPrice: item.price,
       }));
       setItems(newItems);
