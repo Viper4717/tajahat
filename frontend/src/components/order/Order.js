@@ -66,7 +66,7 @@ function loadItems(setItems, setLoading){
     Axios
     .get(`${serverUrl}/product/`)
     .then(({data: res}) => {
-      const newItems = res.results.map((item) => ({
+      const newItems = res.map((item) => ({
         itemId: item.id,
         itemName: item.name,
         itemImgPath: (item.img? serverUrl+item.img : cardMangoImage),
