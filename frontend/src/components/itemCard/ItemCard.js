@@ -39,7 +39,7 @@ function ItemCard({itemId, itemImgPath, itemName, itemPrice, itemAvailability}) 
                     <Card.Text className="itemPrice">
                         {itemPrice} ৳ per kg
                     </Card.Text>
-                    {itemAvailability === "false" &&
+                    {itemAvailability == false &&
                     <Card.Text className="itemAvailability">
                         Not Available
                     </Card.Text>
@@ -48,12 +48,12 @@ function ItemCard({itemId, itemImgPath, itemName, itemPrice, itemAvailability}) 
                 </div>
                 {cart.some(item => item.id === itemId) ?
                     <Button className="addToCartButton" variant="remove"
-                    onClick={removeFromCart} disabled={itemAvailability==="false"}>
+                    onClick={removeFromCart} disabled={itemAvailability==false}>
                         Remove from Cart
                     </Button>
                     :
                     <Button className="addToCartButton" variant="custom"
-                    onClick={addToCart} disabled={itemAvailability==="false"}>
+                    onClick={addToCart} disabled={itemAvailability==false}>
                         Add to Cart
                     </Button>
                 }
