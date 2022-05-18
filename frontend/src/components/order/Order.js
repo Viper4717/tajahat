@@ -113,7 +113,7 @@ function Order() {
             :
             <div className="orderBody">
                 {items.map(item => (
-                    <ItemCard itemId={item.itemId} itemImgPath={itemImgPath} itemName={item.itemName}
+                    <ItemCard itemId={item.itemId} itemImgPath={item.itemImgPath} itemName={item.itemName}
                     itemPrice={item.itemPrice} itemAvailability={item.itemAvailability} />
                 ))}
             </div>
