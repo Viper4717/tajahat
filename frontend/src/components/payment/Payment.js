@@ -45,7 +45,7 @@ function Payment() {
                 address: shippingInfo.address,
                 order_list: cart,
                 total_amount: totalAmount,
-                total_price: productCost,
+                total_price: productCost+shippingCost+packagingCost,
                 transaction_id: transactionId,
             }
             Axios.post(`${serverUrl}/order/`, orderObject)
@@ -87,7 +87,7 @@ function Payment() {
                     </div>
                     <div className="instructionText">
                         Your Total Cost: <b> {productCost+shippingCost+packagingCost} ৳ </b> <br/>
-                        Send money through Bkash to the following number: <b> +8801722669933 </b>
+                        Send money through Bkash to the following number: <b> +8801722669933 </b>.
                     </div>
                     <div className="formDiv">
                         {error &&

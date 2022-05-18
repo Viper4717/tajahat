@@ -73,7 +73,7 @@ function Cart() {
                     <div className="cartDivFooter">
                         <div className="labelDiv">
                             Total Item Cost <br/>
-                            Shipping Cost
+                            Shipping Cost <br/>
                             Packaging Cost
                         </div>
                         <div className="numberDiv">
