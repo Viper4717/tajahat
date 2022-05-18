@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import './Header.css';
 import HeaderLogo from '../../assets/header/TajahatHeader.png'
-import MobileHeaderLogo from '../../assets/header/nilkhetianMobileLogoHeader.svg'
+import MobileHeaderLogo from '../../assets/header/TajahatHeaderMobile.png'
 import { Navbar, Nav, Container, Badge} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../Contexts';

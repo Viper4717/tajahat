@@ -3,6 +3,8 @@ import './Home.css';
 import slideImage1 from '../../assets/home/mangoImage.jpg';
 import slideImage2 from '../../assets/home/mangoImage.jpg';
 import slideImage3 from '../../assets/home/mangoImage.jpg';
+import homeImage1 from '../../assets/home/mangoImage.jpg';
+import homeImage2 from '../../assets/home/mangoImage.jpg';
 import {Container, Carousel, Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Aos from 'aos';
@@ -27,10 +29,10 @@ function Home() {
                     src={slideImage1}
                     alt="First slide"
                     />
-                    <Carousel.Caption>
+                    {/* <Carousel.Caption>
                         <h3>First slide label</h3>
                         <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
+                    </Carousel.Caption> */}
                 </Carousel.Item>
                 <Carousel.Item interval={5000}>
                     <img
@@ -38,10 +40,10 @@ function Home() {
                     src={slideImage2}
                     alt="Second slide"
                     />
-                    <Carousel.Caption>
+                    {/* <Carousel.Caption>
                         <h3>Second slide label</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </Carousel.Caption>
+                    </Carousel.Caption> */}
                 </Carousel.Item>
                 <Carousel.Item interval={5000}>
                     <img
@@ -49,10 +51,10 @@ function Home() {
                     src={slideImage3}
                     alt="Third slide"
                     />
-                    <Carousel.Caption>
+                    {/* <Carousel.Caption>
                         <h3>Third slide label</h3>
                         <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                    </Carousel.Caption>
+                    </Carousel.Caption> */}
                 </Carousel.Item>
             </Carousel>
             <div className="homeBodyContainer">
@@ -65,32 +67,34 @@ function Home() {
                         />
                     </div>
                     <div className="homeBodyText" data-aos="fade-left">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
-                    specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially
-                    unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                    recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    We are Tajahat, an organic marketplace vowed to supply fresh and authentic foods to our valuable customers.
+                    We are involved in mango farming in Chapainawabganj for four generations. In the first attempt, we've decided
+                    to supply the premium quality fresh mangoes from our orchards. Please stay with us for authentic taste and free from adulteration.
                     </div>
                 </div>
                 <div className="homeBody">
                     <div className="hiddenHomeBodyImageDiv" data-aos="fade-left">
                         <img
                         className="homeImage"
-                        src={slideImage1}
+                        src={homeImage1}
                         alt="mango"
                         />
                     </div>
                     <div className="homeBodyText" data-aos="fade-right">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
-                    specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially
-                    unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                    recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    Available Mangoes:
+                    <ul>
+                        <li>Lengra</li>
+                        <li>Khirsapat</li>
+                        <li>Gopalbhog</li>
+                        <li>Fazli</li>
+                        <li>Aamrupali</li>
+                        <li>Ashwina</li>
+                    </ul>
                     </div>
                     <div className="homeBodyImageDivRight" data-aos="fade-left">
                         <img
                         className="homeImage"
-                        src={slideImage1}
+                        src={homeImage2}
                         alt="mango"
                         />
                     </div>

@@ -3,7 +3,7 @@ import './ItemCard.css';
 import { Button, Card } from 'react-bootstrap';
 import { CartContext } from '../../Contexts';
 
-function ItemCard({itemId, itemImgPath, itemName, itemPrice}) {
+function ItemCard({itemId, itemImgPath, itemName, itemPrice, itemAvailability}) {
 
     const [cart, setCart] = useContext(CartContext);
 
@@ -39,15 +39,21 @@ function ItemCard({itemId, itemImgPath, itemName, itemPrice}) {
                     <Card.Text className="itemPrice">
                         {itemPrice} ৳ per kg
                     </Card.Text>
+                    {itemAvailability === "false" &&
+                    <Card.Text className="itemAvailability">
+                        Not Available
+                    </Card.Text>
+                    }
+
                 </div>
                 {cart.some(item => item.id === itemId) ?
                     <Button className="addToCartButton" variant="remove"
-                    onClick={removeFromCart}>
+                    onClick={removeFromCart} disabled={itemAvailability==="false"}>
                         Remove from Cart
                     </Button>
                     :
                     <Button className="addToCartButton" variant="custom"
-                    onClick={addToCart}>
+                    onClick={addToCart} disabled={itemAvailability==="false"}>
                         Add to Cart
                     </Button>
                 }

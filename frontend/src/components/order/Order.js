@@ -11,51 +11,61 @@ const items = [
         "itemId": 1,
         "itemName": "Fajli",
         "itemPrice": "200",
+        "itemAvailability": "true",
     },
     {
         "itemId": 2,
         "itemName": "Lengra",
         "itemPrice": "400",
+        "itemAvailability": "true",
     },
     {
         "itemId": 3,
         "itemName": "Himshagor",
         "itemPrice": "400",
+        "itemAvailability": "false",
     },
     {
         "itemId": 4,
         "itemName": "Mohonbhog",
         "itemPrice": "400",
+        "itemAvailability": "true",
     },
     {
         "itemId": 5,
         "itemName": "Gopalbhog",
         "itemPrice": "400",
+        "itemAvailability": "true",
     },
     {
         "itemId": 6,
         "itemName": "Aamrupali",
         "itemPrice": "400",
+        "itemAvailability": "true",
     },
     {
         "itemId": 7,
         "itemName": "Khirsapat",
         "itemPrice": "400",
+        "itemAvailability": "false",
     },
     {
         "itemId": 8,
         "itemName": "Ashhwina",
         "itemPrice": "400",
+        "itemAvailability": "true",
     },
     {
         "itemId": 9,
         "itemName": "Khisanbogh",
         "itemPrice": "400",
+        "itemAvailability": "false",
     },
     {
         "itemId": 10,
         "itemName": "Kuapahari",
         "itemPrice": "400",
+        "itemAvailability": "true",
     },
 ]
 
@@ -72,6 +82,7 @@ function loadItems(setItems, setLoading){
         itemImgPath: (item.img? serverUrl+item.img : cardMangoImage),
         // itemImgPath: cardMangoImage,
         itemPrice: item.price,
+        itemAvailability: item.availability,
       }));
       setItems(newItems);
       setLoading(false);
@@ -102,7 +113,8 @@ function Order() {
             :
             <div className="orderBody">
                 {items.map(item => (
-                    <ItemCard itemId={item.itemId} itemImgPath={item.itemImgPath} itemName={item.itemName} itemPrice={item.itemPrice}/>
+                    <ItemCard itemId={item.itemId} itemImgPath={cardMangoImage} itemName={item.itemName}
+                    itemPrice={item.itemPrice} itemAvailability={item.itemAvailability} />
                 ))}
             </div>
             }

@@ -72,15 +72,15 @@ function Cart() {
                     <div className="cartDivFooter">
                         <div className="labelDiv">
                             Total Sum <br/>
-                            Shipping
+                            {/* Shipping */}
                         </div>
                         <div className="numberDiv">
                             {productCost} ৳ <br/>
-                            {shippingCost} ৳
+                            {/* {shippingCost} ৳ */}
                         </div>
                     </div>
                     <div className="totalBillDiv">
-                        Total Bill: {productCost + shippingCost} ৳ <br/>
+                        Total Bill: {productCost} ৳ (Excluding Shipping Cost) <br/>
                     </div>
                     {incorrectOrder &&
                         <div className="incorrectOrderDiv">

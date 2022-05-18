@@ -84,8 +84,8 @@ function Payment() {
                         Address: {shippingInfo.address} <br/>
                     </div>
                     <div className="instructionText">
-                        Your Total Bill: <b> {productCost} ৳ </b> <br/>
-                        Send money through Bkash to the following number: <b> +8801521101256 </b>
+                        Your Total Bill: <b> {productCost} ৳ </b> (Excluding Shipping Cost) <br/>
+                        Send money through Bkash to the following number: <b> +8801722669933 </b>
                     </div>
                     <div className="formDiv">
                         {error &&

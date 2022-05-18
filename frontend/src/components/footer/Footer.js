@@ -10,14 +10,12 @@ function Footer() {
         <div className="footerLeft">
           <div className="footerTop">
             <text className="footerTitle">Tajahat</text><br/>
-            <text className="footerSecondaryTitle">By Yamin er boro bhai</text>
           </div>
           <div className="footerMiddle">
-            <text>123, Main Street, New York</text><br/>
-            <text>Dummy address for now</text>
+            <text>Chapainawabganj, Rajshahi</text>
           </div>
           <div className="footerBottom">
-            <a href="https://www.facebook.com/viper.4717" target="_blank">
+            <a href="https://www.facebook.com/tajahat/" target="_blank">
               <FaFacebookSquare size='2.5em'/>
             </a>
           </div>
@@ -28,12 +26,12 @@ function Footer() {
             <text className="footerSecondaryTitle">Contact Us</text>
           </div>
           <div className="footerMiddle">
-            <text>+8801723456789</text><br/>
-            <text>borobhai@gmail.com</text>
+            <text>+8801722669933</text><br/>
+            {/* <text>borobhai@gmail.com</text> */}
           </div>
           <div className="footerBottom">
             <text>All Rights Reserved</text><br/>
-            <text>Django Mango © 2022</text>
+            <text>Tajahat © 2022</text>
           </div>
         </div>
       </Container>
