@@ -18,6 +18,8 @@ function Payment() {
         cart.reduce((acc, item) => acc + (item.amount * item.price), 0));
     const [totalAmount, setTotalAmount] = useState(
         cart.reduce((acc, item) => acc + item.amount, 0));
+    const shippingCost = totalAmount*15;
+    const packagingCost = totalAmount*6.;
     const [shippingInfo, setShippingInfo] = useContext(ShippingContext);
     const [orderSuccess, setOrderSuccess] = useContext(OrderSuccessContext);
     const navigate = useNavigate()
@@ -84,7 +86,7 @@ function Payment() {
                         Address: {shippingInfo.address} <br/>
                     </div>
                     <div className="instructionText">
-                        Your Total Bill: <b> {productCost} ৳ </b> (Excluding Shipping Cost) <br/>
+                        Your Total Cost: <b> {productCost+shippingCost+packagingCost} ৳ </b> <br/>
                         Send money through Bkash to the following number: <b> +8801722669933 </b>
                     </div>
                     <div className="formDiv">

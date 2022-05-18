@@ -14,7 +14,8 @@ function Cart() {
         cart.reduce((acc, item) => acc + (item.amount * item.price), 0));
     const [totalAmount, setTotalAmount] = useState(
         cart.reduce((acc, item) => acc + item.amount, 0));
-    const shippingCost = 50;
+    const shippingCost = totalAmount*15;
+    const packagingCost = totalAmount*6.;
     const [incorrectOrder, setInCorrectOrder] = useState(true);
 
     useEffect(() => {
@@ -71,16 +72,18 @@ function Cart() {
                     </div>
                     <div className="cartDivFooter">
                         <div className="labelDiv">
-                            Total Sum <br/>
-                            {/* Shipping */}
+                            Total Item Cost <br/>
+                            Shipping Cost
+                            Packaging Cost
                         </div>
                         <div className="numberDiv">
                             {productCost} ৳ <br/>
-                            {/* {shippingCost} ৳ */}
+                            {shippingCost} ৳ <br/>
+                            {packagingCost} ৳
                         </div>
                     </div>
                     <div className="totalBillDiv">
-                        Total Bill: {productCost} ৳ (Excluding Shipping Cost) <br/>
+                        Total Cost: {productCost+shippingCost+packagingCost} ৳ <br/>
                     </div>
                     {incorrectOrder &&
                         <div className="incorrectOrderDiv">
