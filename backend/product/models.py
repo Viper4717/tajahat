@@ -5,7 +5,7 @@ from django.db import models
 #types of mango
 TYPE_CHOICES=[
     ('Lengra','Lengra'),
-    ('Fojli','Fojli'),
+    ('Fazli','Fazli'),
     ('Lokkhonbhog','Lokkhonbhog'),
     ('Aamrupali','Aamrupali'),
     ('Khirshapat','Khirshapat'),
