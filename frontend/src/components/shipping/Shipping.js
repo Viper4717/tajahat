@@ -26,9 +26,9 @@ function Shipping() {
             setAddress(shippingInfo.address);
         }
         else{
-            setName("Enter name");
-            setPhone("Enter number");
-            setAddress("Enter address");
+            setName("");
+            setPhone("");
+            setAddress("");
         }
     }, [shippingInfo])
 

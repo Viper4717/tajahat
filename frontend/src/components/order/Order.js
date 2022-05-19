@@ -91,8 +91,7 @@ const items = [
 
 function loadItems(cart, setItems, setLoading){
     // setItems(items);
-    // console.log(cart.length);
-    // if(cart.length > 0){
+    // if(cart != null && cart.length > 0){
     //     const newAmountItems = [...items];
     //     cart.forEach(function (arrayItem) {
     //         const index = items.findIndex(item => arrayItem.id === item.itemId && arrayItem.name === item.itemName);
@@ -115,7 +114,7 @@ function loadItems(cart, setItems, setLoading){
             itemAmount : 5,
         }));
         setItems(newItems);
-        if(cart.length > 0){
+        if(cart != null && cart.length > 0){
             const newAmountItems = [...items];
             cart.forEach(function (arrayItem) {
                 const index = items.findIndex(item => arrayItem.id === item.itemId && arrayItem.name === item.itemName);
