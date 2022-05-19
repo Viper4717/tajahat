@@ -1,11 +1,11 @@
 .itemCard{
     padding: 15px;
-    height: 380px;
+    height: 415px;
     margin: 10px;
     background-color: #eef1d4 !important;
 }
 .itemCardDiv{
-    height: 300px;
+    height: 380px;
     position: relative;
 }
 .itemImageBg{
@@ -19,7 +19,7 @@
     object-fit: contain;
 }
 .itemDetailsBg{
-    height: 130px;
+    height: 120px;
     overflow: hidden;
     position: relative;
 }
@@ -43,6 +43,13 @@
     margin-bottom: 10px !important;
     color: red !important;
 }
+.itemCardQtyBg{
+    background-color: #eef1d4 !important;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .addToCartButton{
     font-size: 1.1em !important;
     font-weight: 600 !important;
@@ -58,25 +65,31 @@
     background-color: #fff59d!important;
     color: black !important;
 }
-.btn-remove:disabled{
-    background-color: #aadbff !important;
+.btn-remove:disabled .btn-remove[disabled]{
+    background-color: #e3ebd9 !important;
     color: black !important;
+    border: 1px solid #8bc34a;
+}
+.btn-light:disabled, .btn-custom[disabled] {
+    background-color: #e3ebd9 !important;
+    color: black !important;
+    border: 1px solid #8bc34a;
 }
 @media screen and (max-width: 768px){
     .itemCard{
-        height: 50%;
+        height: 280px !important;
         width: 50%;
         display: inline-block !important;
         overflow: hidden;
     }
     .itemCardDiv{
-        height: 50%;
+        height: 250px !important;
     }
     .itemImageBg{
-        height: 50%;
+        height: 100px !important;
     }
     .itemDetailsBg{
-        height: 50%;
+        height: 80px !important;
     }
     .itemTitle{
         font-size: 0.9em !important;
@@ -87,7 +100,15 @@
     .itemPrice{
         font-size: 0.8em !important;
         font-weight: 500 !important;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.2rem !important;
+    }
+    .itemCardQtyBg{
+        height: 25px !important;
+    }
+    .itemAvailability{
+        font-size: 0.8em !important;
+        font-weight: 500 !important;
+        margin-bottom: 0.2rem !important;
     }
     .addToCartButton{
         font-size: 0.8em !important;

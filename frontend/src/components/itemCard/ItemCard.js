@@ -1,11 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './ItemCard.css';
 import { Button, Card } from 'react-bootstrap';
 import { CartContext } from '../../Contexts';
 
-function ItemCard({itemId, itemImgPath, itemName, itemPrice, itemAvailability}) {
+function ItemCard({itemId, itemImgPath, itemName, itemPrice, itemAvailability, itemAmount}) {
 
     const [cart, setCart] = useContext(CartContext);
+    const [amount, setAmount] = useState();
+
+    useEffect(() => {
+        setAmount(itemAmount);
+    }, [itemAmount])
 
     const addToCart = () => {
         const newCartItem = {
@@ -13,7 +18,7 @@ function ItemCard({itemId, itemImgPath, itemName, itemPrice, itemAvailability}) 
             name: itemName,
             imgPath: itemImgPath,
             price: itemPrice,
-            amount: 5,
+            amount: amount,
         };
         const newCart = [...cart, newCartItem];
         setCart(newCart);
@@ -24,6 +29,29 @@ function ItemCard({itemId, itemImgPath, itemName, itemPrice, itemAvailability}) 
         const newCart = cart.filter(item => item.id !== itemId);
         setCart(newCart);
         localStorage.setItem("cart", JSON.stringify(newCart));
+    }
+
+    const increaseQty = () =>{
+        if(amount < 99){
+            const newAmount = amount + 5;
+            modifyAmount(newAmount);
+        }
+    }
+    const decreaseQty = () =>{
+        if(amount > 5){
+            const newAmount = amount - 5;
+            modifyAmount(newAmount);
+        }
+    }
+    const modifyAmount = (newAmount) => {
+        const index = cart.findIndex(item => item.id === itemId);
+        if(index !== -1){
+            const newCart = [...cart];
+            newCart[index] = {...newCart[index], amount: newAmount};
+            setCart(newCart);
+            localStorage.setItem("cart", JSON.stringify(newCart));
+        }
+        setAmount(newAmount);
     }
 
     return (
@@ -39,21 +67,25 @@ function ItemCard({itemId, itemImgPath, itemName, itemPrice, itemAvailability}) 
                     <Card.Text className="itemPrice">
                         {itemPrice} ৳ per kg
                     </Card.Text>
-                    {itemAvailability == false &&
+                    {itemAvailability === false &&
                     <Card.Text className="itemAvailability">
                         Not Available
                     </Card.Text>
                     }
-
+                </div>
+                <div className="itemCardQtyBg">
+                    <Button className="qtyBtn" variant="light" onClick={decreaseQty} disabled={itemAvailability===false}>-</Button>
+                    <div className="cartItemQtyDiv"> {amount} kg </div>
+                    <Button className="qtyBtn" variant="light" onClick={increaseQty} disabled={itemAvailability===false}>+</Button>
                 </div>
                 {cart.some(item => item.id === itemId) ?
                     <Button className="addToCartButton" variant="remove"
-                    onClick={removeFromCart} disabled={itemAvailability==false}>
+                    onClick={removeFromCart} disabled={itemAvailability===false}>
                         Remove from Cart
                     </Button>
                     :
                     <Button className="addToCartButton" variant="custom"
-                    onClick={addToCart} disabled={itemAvailability==false}>
+                    onClick={addToCart} disabled={itemAvailability===false}>
                         Add to Cart
                     </Button>
                 }

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './Order.css';
 import { Container, Spinner } from 'react-bootstrap';
 import ItemCard from '../itemCard/ItemCard';
 import cardMangoImage from '../../assets/order/cardMangoImage.jpg';
 import Axios from 'axios';
-import { serverUrl } from '../../util';
+import { serverUrl, useLocalStorage } from '../../util';
 
 const items = [
     {
@@ -13,6 +13,7 @@ const items = [
         "itemPrice": "200",
         "itemImgPath": cardMangoImage,
         "itemAvailability": true,
+        "itemAmount" : 5,
     },
     {
         "itemId": 2,
@@ -20,6 +21,7 @@ const items = [
         "itemPrice": "400",
         "itemImgPath": cardMangoImage,
         "itemAvailability": true,
+        "itemAmount" : 5,
     },
     {
         "itemId": 3,
@@ -27,6 +29,7 @@ const items = [
         "itemPrice": "400",
         "itemImgPath": cardMangoImage,
         "itemAvailability": false,
+        "itemAmount" : 5,
     },
     {
         "itemId": 4,
@@ -34,6 +37,7 @@ const items = [
         "itemPrice": "400",
         "itemImgPath": cardMangoImage,
         "itemAvailability": true,
+        "itemAmount" : 5,
     },
     {
         "itemId": 5,
@@ -41,6 +45,7 @@ const items = [
         "itemPrice": "400",
         "itemImgPath": cardMangoImage,
         "itemAvailability": true,
+        "itemAmount" : 5,
     },
     {
         "itemId": 6,
@@ -48,6 +53,7 @@ const items = [
         "itemPrice": "400",
         "itemImgPath": cardMangoImage,
         "itemAvailability": true,
+        "itemAmount" : 5,
     },
     {
         "itemId": 7,
@@ -55,6 +61,7 @@ const items = [
         "itemPrice": "400",
         "itemImgPath": cardMangoImage,
         "itemAvailability": false,
+        "itemAmount" : 5,
     },
     {
         "itemId": 8,
@@ -62,6 +69,7 @@ const items = [
         "itemPrice": "400",
         "itemImgPath": cardMangoImage,
         "itemAvailability": true,
+        "itemAmount" : 5,
     },
     {
         "itemId": 9,
@@ -69,6 +77,7 @@ const items = [
         "itemPrice": "400",
         "itemImgPath": cardMangoImage,
         "itemAvailability": false,
+        "itemAmount" : 5,
     },
     {
         "itemId": 10,
@@ -76,26 +85,45 @@ const items = [
         "itemPrice": "400",
         "itemImgPath": cardMangoImage,
         "itemAvailability": true,
+        "itemAmount" : 5,
     },
 ]
 
-function loadItems(setItems, setLoading){
+function loadItems(cart, setItems, setLoading){
     // setItems(items);
+    // console.log(cart.length);
+    // if(cart.length > 0){
+    //     const newAmountItems = [...items];
+    //     cart.forEach(function (arrayItem) {
+    //         const index = items.findIndex(item => arrayItem.id === item.itemId && arrayItem.name === item.itemName);
+    //         newAmountItems[index] = {...newAmountItems[index], itemAmount: arrayItem.amount};
+    //     });
+    //     setItems(newAmountItems);
+    // }
 
     setLoading(true);
     Axios
     .get(`${serverUrl}/product/`)
     .then(({data: res}) => {
-      const newItems = res.map((item) => ({
-        itemId: item.id,
-        itemName: item.name,
-        itemImgPath: (item.img? serverUrl+item.img : cardMangoImage),
-        // itemImgPath: cardMangoImage,
-        itemPrice: item.price,
-        itemAvailability: item.availability,
-      }));
-      setItems(newItems);
-      setLoading(false);
+        const newItems = res.map((item) => ({
+            itemId: item.id,
+            itemName: item.name,
+            itemImgPath: (item.img? serverUrl+item.img : cardMangoImage),
+            // itemImgPath: cardMangoImage,
+            itemPrice: item.price,
+            itemAvailability: item.availability,
+            itemAmount : 5,
+        }));
+        setItems(newItems);
+        if(cart.length > 0){
+            const newAmountItems = [...items];
+            cart.forEach(function (arrayItem) {
+                const index = items.findIndex(item => arrayItem.id === item.itemId && arrayItem.name === item.itemName);
+                newAmountItems[index] = {...newAmountItems[index], itemAmount: arrayItem.amount};
+            });
+            setItems(newAmountItems);
+        }
+        setLoading(false);
     })
     .catch((error) => {
       console.error(error);
@@ -107,10 +135,11 @@ function Order() {
 
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [cart, setCart] = useLocalStorage("cart");
 
     useEffect(() => {
         window.scrollTo(0, 0)
-        loadItems(setItems, setLoading);
+        loadItems(cart, setItems, setLoading);
     }, [])
 
     return (
@@ -124,7 +153,7 @@ function Order() {
             <div className="orderBody">
                 {items.map(item => (
                     <ItemCard itemId={item.itemId} itemImgPath={item.itemImgPath} itemName={item.itemName}
-                    itemPrice={item.itemPrice} itemAvailability={item.itemAvailability} />
+                    itemPrice={item.itemPrice} itemAvailability={item.itemAvailability} itemAmount={item.itemAmount} />
                 ))}
             </div>
             }
