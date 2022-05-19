@@ -27,7 +27,7 @@ function Footer() {
           </div>
           <div className="footerMiddle">
             <text>+8801722669933</text><br/>
-            {/* <text>borobhai@gmail.com</text> */}
+            <text>tajahat.organic@gmail.com</text>
           </div>
           <div className="footerBottom">
             <text>All Rights Reserved</text><br/>

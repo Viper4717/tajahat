@@ -5,9 +5,13 @@
 .padBottomContainer{
     padding-bottom: 30px !important;
 }
-.carousalImage{
-    width: 100%;
-    height: 500px;
+.carouselDiv{
+    text-align: center;
+    background-color: #eef1d4;
+}
+.carouselImage{
+    width: 70%;
+    height: 550px;
 }
 .homeBodyContainer{
     margin-top: 50px;
@@ -28,9 +32,14 @@
 .hiddenHomeBodyImageDiv{
     display: none;
 }
+figcaption {
+    font-size: 1em !important;
+    position: absolute;
+    right: 200px;
+}
 .homeImage{
-    width: 500px;
-    height: 300px;
+    width: 550px;
+    height: 350px;
 }
 .homeBodyText{
     font-size: 1.5em;
@@ -57,7 +66,8 @@
     .padBottomContainer{
         padding-bottom: 10px !important;
     }
-    .carousalImage{
+    .carouselImage{
+        width: 100%;
         height: 300px;
     }
     .homeBodyContainer{
@@ -81,6 +91,11 @@
     .homeImage{
         width: 100%;
         height: 300px;
+    }
+    figcaption {
+        font-size: 1em !important;
+        position: inherit;
+        text-align: center;
     }
     .homeBodyText{
         font-size: 1em;
