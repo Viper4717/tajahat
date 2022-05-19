@@ -6,12 +6,12 @@ from django.db import models
 TYPE_CHOICES=[
     ('Lengra','Lengra'),
     ('Fojli','Fojli'),
-    ('LokkhonBhog','LokkhonBhog'),
+    ('Lokkhonbhog','Lokkhonbhog'),
     ('Aamrupali','Aamrupali'),
     ('Khirshapat','Khirshapat'),
-    ('Gopalbhog','Gopalvog'),
-    ('Kalivog','Kalivog'),
-    ('mohonvog','Mohonvog'),
+    ('Gopalbhog','Gopalbhog'),
+    ('Kalibhog','Kalibhog'),
+    ('Mohonbhog','Mohonbhog'),
     ('Guti','Guti'),
     ('Ashwina','Ashwina'),
 ]
