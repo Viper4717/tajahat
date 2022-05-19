@@ -6,7 +6,7 @@ import cardMangoImage from '../../assets/order/cardMangoImage.jpg';
 import Axios from 'axios';
 import { serverUrl, useLocalStorage } from '../../util';
 
-const items = [
+var dummyItems = [
     {
         "itemId": 1,
         "itemName": "Fajli",
@@ -90,21 +90,19 @@ const items = [
 ]
 
 function loadItems(cart, setItems, setLoading){
-    // setItems(items);
     // if(cart != null && cart.length > 0){
-    //     const newAmountItems = [...items];
     //     cart.forEach(function (arrayItem) {
-    //         const index = items.findIndex(item => arrayItem.id === item.itemId && arrayItem.name === item.itemName);
-    //         newAmountItems[index] = {...newAmountItems[index], itemAmount: arrayItem.amount};
+    //         const index = dummyItems.findIndex(item => arrayItem.id === item.itemId && arrayItem.name === item.itemName);
+    //         dummyItems[index] = {...dummyItems[index], itemAmount: arrayItem.amount};
     //     });
-    //     setItems(newAmountItems);
     // }
+    // setItems(dummyItems);
 
     setLoading(true);
     Axios
     .get(`${serverUrl}/product/`)
     .then(({data: res}) => {
-        const newItems = res.map((item) => ({
+        var newItems = res.map((item) => ({
             itemId: item.id,
             itemName: item.name,
             itemImgPath: (item.img? serverUrl+item.img : cardMangoImage),
@@ -113,15 +111,13 @@ function loadItems(cart, setItems, setLoading){
             itemAvailability: item.availability,
             itemAmount : 5,
         }));
-        setItems(newItems);
         if(cart != null && cart.length > 0){
-            const newAmountItems = [...items];
             cart.forEach(function (arrayItem) {
-                const index = items.findIndex(item => arrayItem.id === item.itemId && arrayItem.name === item.itemName);
-                newAmountItems[index] = {...newAmountItems[index], itemAmount: arrayItem.amount};
+                const index = newItems.findIndex(item => arrayItem.id === item.itemId && arrayItem.name === item.itemName);
+                newItems[index] = {...newItems[index], itemAmount: arrayItem.amount};
             });
-            setItems(newAmountItems);
         }
+        setItems(newItems);
         setLoading(false);
     })
     .catch((error) => {
