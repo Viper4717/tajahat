@@ -4,16 +4,16 @@ from django.db import models
 # Create your models here.
 #types of mango
 TYPE_CHOICES=[
-    ('lengra','Lengra'),
-    ('fojli','Fojli'),
-    ('himshangar','Himshagor'),
-    ('aamruplai','Aamrupali'),
-    ('khirshapat','Khirshapat'),
-    ('gopalbhog','Gopalvog'),
-    ('kalivog','Kalivog'),
+    ('Lengra','Lengra'),
+    ('Fojli','Fojli'),
+    ('LokkhonBhog','LokkhonBhog'),
+    ('Aamrupali','Aamrupali'),
+    ('Khirshapat','Khirshapat'),
+    ('Gopalbhog','Gopalvog'),
+    ('Kalivog','Kalivog'),
     ('mohonvog','Mohonvog'),
-    ('harivanga','Hariavanga'),
-    ('ashwina','Ashwina'),
+    ('Guti','Guti'),
+    ('Ashwina','Ashwina'),
 ]
 #models for product
 class Product(models.Model):
