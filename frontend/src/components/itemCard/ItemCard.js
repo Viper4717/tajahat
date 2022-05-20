@@ -65,7 +65,7 @@ function ItemCard({itemId, itemImgPath, itemName, itemPrice, itemAvailability, i
                         {itemName}
                     </Card.Title>
                     <Card.Text className="itemPrice">
-                        {itemPrice} ৳ per kg
+                        {itemPrice} BDT per kg
                     </Card.Text>
                     {itemAvailability === false &&
                     <Card.Text className="itemAvailability">

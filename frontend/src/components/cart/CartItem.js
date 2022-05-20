@@ -68,7 +68,7 @@ function CartItem({itemId, itemName, itemImgPath, itemAmount, itemPrice}) {
                 </div>
                 <div className="cartItemPriceBg">
                     <Card.Text className="cartItemPrice">
-                        {itemAmount * itemPrice} ৳
+                        {itemAmount * itemPrice}
                     </Card.Text>
                 </div>
             </div>

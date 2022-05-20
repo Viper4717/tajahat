@@ -62,7 +62,7 @@ function Cart() {
                     <div className="cartDivHeader">
                         <div className="itemDiv">Item Name</div>
                         <div className="unitDiv">Units</div>
-                        <div className="priceDiv">Price</div>
+                        <div className="priceDiv">Price (BDT)</div>
                     </div>
                     <div className="cartDiv">
                         {cart.map(item => (
@@ -77,13 +77,13 @@ function Cart() {
                             Packaging Cost
                         </div>
                         <div className="numberDiv">
-                            {productCost} ৳ <br/>
-                            {shippingCost} ৳ <br/>
-                            {packagingCost} ৳
+                            {productCost} BDT <br/>
+                            {shippingCost} BDT <br/>
+                            {packagingCost} BDT
                         </div>
                     </div>
                     <div className="totalBillDiv">
-                        Total Cost: {productCost+shippingCost+packagingCost} ৳ <br/>
+                        Total Cost: {productCost+shippingCost+packagingCost} BDT <br/>
                     </div>
                     {incorrectOrder &&
                         <div className="incorrectOrderDiv">
