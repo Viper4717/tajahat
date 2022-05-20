@@ -37,6 +37,9 @@ function Header() {
                         <Nav.Link as={Link} to="/order">
                             <h5>Order</h5>
                         </Nav.Link>
+                        <Nav.Link as={Link} to="/track">
+                            <h5>Track</h5>
+                        </Nav.Link>
                         <Nav.Link as={Link} to="/cart">
                             <h5>Cart</h5>
                             {cart.length > 0 && <Badge className="cartCounter" pill bg="warning" text="dark"> {cart.length} </Badge>}

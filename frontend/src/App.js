@@ -9,6 +9,7 @@ import Cart from './components/cart/Cart';
 import Shipping from './components/shipping/Shipping';
 import Payment from './components/payment/Payment';
 import Success from './components/success/Success';
+import Track from './components/track/Track';
 import { CartContext, ShippingContext, OrderSuccessContext } from './Contexts';
 import history from './History';
 
@@ -45,6 +46,7 @@ function App() {
                 <Routes>
                     <Route exact path="/" element={<Home/>}/>
                     <Route exact path="/order" element={<Order/>}/>
+                    <Route exact path="/track" element={<Track/>}/>
                     <Route exact path="/cart" element={<Cart/>}/>
                     <Route exact path="/shipping" element={ (cart != null) && (cart.length) ? <Shipping/> : <Navigate to="/cart" /> } />
                     <Route exact path="/payment" element={ (cart != null) && (cart.length) ? <Payment/> : <Navigate to="/cart" /> } />

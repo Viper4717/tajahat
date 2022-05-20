@@ -1,0 +1,15 @@
+.transactionIdDiv{
+    font-size: 1.25em;
+}
+.Invalid{
+    color: red;
+    font-size: 1.25em;
+}
+.Processing{
+    color: red;
+    font-size: 1.25em;
+}
+.Confirmed{
+    color: #388e3c;
+    font-size: 1.25em;
+}

@@ -33,6 +33,10 @@ function Payment() {
             const err = "Transaction ID is required."
             setError(err);
         }
+        else if(transactionId.length !== 10){
+            const err = "Invalid Transaction ID."
+            setError(err);
+        }
         else{
             // setOrderSuccess(true);
             // navigate("/success");
