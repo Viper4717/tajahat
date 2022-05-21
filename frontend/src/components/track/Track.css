@@ -1,15 +1,54 @@
+.trxFormDiv{
+    width: 70%;
+    margin: auto;
+}
 .transactionIdDiv{
     font-size: 1.25em;
 }
-.Invalid{
-    color: red;
+.progressBarDiv{
     font-size: 1.25em;
+    margin-top: 20px;
 }
-.Processing{
-    color: red;
-    font-size: 1.25em;
+.RSPBprogressBar {
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 50px;
 }
-.Confirmed{
-    color: #388e3c;
-    font-size: 1.25em;
+.accomplishedLineDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    color: black;
+    background-color: #388e3c;
+}
+.notAccomplishedLineDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    color: black;
+    background-color: #cfcece;
+}
+
+@media screen and (max-width: 768px){
+    .transactionIdDiv{
+        font-size: 1em;
+    }
+    .progressBarDiv{
+        font-size: 1em;
+    }
+    .RSPBprogressBar {
+        width: 90% !important;
+    }
+    .accomplishedLineDiv{
+        font-size: 0.8em !important;
+    }
+    .notAccomplishedLineDiv{
+        font-size: 0.8em !important;
+    }
 }

@@ -2,111 +2,31 @@ import React, { useState, useEffect } from 'react';
 import './Track.css';
 import { Button, Container, Spinner, Form, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import "react-step-progress-bar/styles.css";
 import { ProgressBar, Step } from "react-step-progress-bar";
 import Axios from 'axios';
 import { serverUrl } from '../../util';
 
 function Track() {
 
-    // const orderSteps = [
-    //     {
-    //       status: "Processing"
-    //     },
-    //     {
-    //       status: "Shipping"
-    //     },
-    //     {
-    //       status: "Delivered"
-    //     },
-    // ];
+    const orderSteps = [
+        {
+            status: "Received"
+        },
+        {
+            status: "Processing"
+        },
+        {
+            status: "Shipping"
+        },
+        {
+            status: "Delivered"
+        },
+    ];
     
-    // const getStepPosition = (orderStatus) => {
-    //     return orderSteps.findIndex(({ status }) => status === orderStatus);
-    // };
-    
-    //   return (
-    //     <>
-    //       <div style={{ margin: 50 }}>
-    //         <ProgressBar
-    //           width={500}
-    //           percent={
-    //             100 *
-    //               ((getStepPosition(orderStatus) + 1) / (orderSteps.length - 1)) -
-    //             1
-    //           }
-    //           filledBackground="linear-gradient(to right, #41ad49, #41ad49)"
-    //         >
-    //           {steps.map((step, index, arr) => {
-    //             return (
-    //               <Step
-    //                 // position={100 * (index / arr.length)}
-    //                 transition="scale"
-    //                 children={({ accomplished }) => (
-    //                   <div
-    //                     style={{
-    //                       display: "flex",
-    //                       alignItems: "center",
-    //                       justifyContent: "center",
-    //                       borderRadius: "50%",
-    //                       width: 20,
-    //                       height: 20,
-    //                       color: "black",
-    //                       backgroundColor: accomplished ? "green" : "gray"
-    //                     }}
-    //                   >
-    //                     <br />
-    //                     <br />
-    //                     <br />
-    //                     {step.status}
-    //                   </div>
-    //                 )}
-    //               />
-    //             );
-    //           })}
-    //         </ProgressBar>
-    //       </div>
-    //       <br />
-    //       <div style={{ margin: 50 }}>
-    //         <ProgressBar
-    //           width={500}
-    //           percent={
-    //             100 *
-    //               ((getStepPosition(transfer.status) + 1) / (steps.length - 1)) -
-    //             1
-    //           }
-    //           filledBackground="linear-gradient(to right, #41ad49, #41ad49)"
-    //         >
-    //           {steps.map((step, index, arr) => {
-    //             return (
-    //               <Step
-    //                 // position={100 * (index / arr.length)}
-    //                 transition="scale"
-    //                 children={({ accomplished }) => (
-    //                   <div
-    //                     style={{
-    //                       display: "flex",
-    //                       alignItems: "center",
-    //                       justifyContent: "center",
-    //                       borderRadius: "50%",
-    //                       width: 20,
-    //                       height: 20,
-    //                       color: "black",
-    //                       backgroundColor: accomplished ? "green" : "gray"
-    //                     }}
-    //                   >
-    //                     <br />
-    //                     <br />
-    //                     <br />
-    //                     {step.status}
-    //                   </div>
-    //                 )}
-    //               />
-    //             );
-    //           })}
-    //         </ProgressBar>
-    //       </div>
-    //     </>
-    //   );
+    const getStepPosition = (orderStatus) => {
+        return orderSteps.findIndex(({ status }) => status === orderStatus);
+    };
 
     const [error, setError] = useState();
     const [loading, setLoading] = useState(false);
@@ -130,7 +50,7 @@ function Track() {
         else{
             // setLoading(false);
             // setTextTransactionId(transactionId);
-            // setOrderStatus("Invalid");
+            // setOrderStatus("Processing");
 
             setError(null);
             setLoading(true);
@@ -160,7 +80,7 @@ function Track() {
             </h4>
             <div className="paymentInfoDiv">
                 <div className="paymentInfoWhiteDiv">
-                    <div className="formDiv">
+                    <div className="trxFormDiv">
                         {error &&
                         <Alert variant='danger'>
                             {error}
@@ -180,10 +100,40 @@ function Track() {
                     <div>
                         <div className="transactionIdDiv">
                             Transaction ID: <b>{textTransactionId}</b> <br/>
-                            Status:
                         </div>
-                        <div className={orderStatus}>
-                            <b>{orderStatus}</b>
+                        <div className='progressBarDiv'>
+                            Status:
+                            <ProgressBar
+                            width={500}
+                            percent={
+                                (100/(orderSteps.length-1)) * getStepPosition(orderStatus)+1
+                            }
+                            filledBackground="linear-gradient(to right, #41ad49, #41ad49)"
+                            >
+                            {orderSteps.map((step) => {
+                                return (
+                                <Step
+                                    transition="scale"
+                                    children={({ accomplished }) => (
+                                        accomplished?
+                                        <div className="accomplishedLineDiv">
+                                            <br />
+                                            <br />
+                                            <br />
+                                            {step.status}
+                                        </div>
+                                        :
+                                        <div className="notAccomplishedLineDiv">
+                                            <br />
+                                            <br />
+                                            <br />
+                                            {step.status}
+                                        </div>
+                                    )}
+                                />
+                                );
+                            })}
+                            </ProgressBar>
                         </div>
                     </div>}
                 </div>
