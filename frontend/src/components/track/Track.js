@@ -57,7 +57,7 @@ function Track() {
             const checkStatusObject = {
                 transaction_id: transactionId,
             }
-            Axios.post(`${serverUrl}/track/`, checkStatusObject)
+            Axios.post(`${serverUrl}/order/track/`, checkStatusObject)
             .then(({data: res}) => {
                 setLoading(false);
                 setTextTransactionId(transactionId);
