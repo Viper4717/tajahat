@@ -1,4 +1,5 @@
 from collections import _OrderedDictItemsView
+from http.client import ImproperConnectionState
 from itertools import product
 from typing import OrderedDict
 from xml.etree.ElementInclude import default_loader
@@ -7,6 +8,9 @@ from pytz import timezone
 from product.models import Product
 import datetime
 from django.utils import timezone
+from django.dispatch import receiver
+from django.db.models.signals import post_delete
+from product.models import Product
 
 # Create your models here.
 
@@ -43,3 +47,10 @@ class OrderItem(models.Model):
         return str(self.order_id.id)
     
 
+@receiver(post_delete, sender= OrderItem)
+def update_product_quantity(sender, **kwargs):
+    order_item = kwargs['instance']
+    product = Product.objects.get(id = order_item.product.id)
+    if(order_item.order_id.confirmation_status == False):
+        product.quantity = product.quantity + order_item.amount
+        product.save()
