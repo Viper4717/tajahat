@@ -67,25 +67,25 @@ function ItemCard({itemId, itemImgPath, itemName, itemPrice, itemAvailableQuanti
                     <Card.Text className="itemPrice">
                         {itemPrice} BDT per kg
                     </Card.Text>
-                    {itemAvailableQuantity === 0 &&
+                    {itemAvailableQuantity <5 &&
                     <Card.Text className="itemAvailability">
                         Not Available
                     </Card.Text>
                     }
                 </div>
                 <div className="itemCardQtyBg">
-                    <Button className="qtyBtn" variant="light" onClick={decreaseQty} disabled={itemAvailableQuantity===0}>-</Button>
+                    <Button className="qtyBtn" variant="light" onClick={decreaseQty} disabled={itemAvailableQuantity<5}>-</Button>
                     <div className="cartItemQtyDiv"> {amount} kg </div>
-                    <Button className="qtyBtn" variant="light" onClick={increaseQty} disabled={itemAvailableQuantity===0}>+</Button>
+                    <Button className="qtyBtn" variant="light" onClick={increaseQty} disabled={itemAvailableQuantity<5}>+</Button>
                 </div>
                 {cart.some(item => item.id === itemId) ?
                     <Button className="addToCartButton" variant="remove"
-                    onClick={removeFromCart} disabled={itemAvailableQuantity===0}>
+                    onClick={removeFromCart} disabled={itemAvailableQuantity<5}>
                         Remove from Cart
                     </Button>
                     :
                     <Button className="addToCartButton" variant="custom"
-                    onClick={addToCart} disabled={itemAvailableQuantity===0}>
+                    onClick={addToCart} disabled={itemAvailableQuantity<5}>
                         Add to Cart
                     </Button>
                 }
