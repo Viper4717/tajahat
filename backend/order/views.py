@@ -54,6 +54,8 @@ class OrderView(APIView):
 
 class OrderItemView(APIView):
 
+    permission_classes= [IsAdminUser]
+
     def get(self, request):
         orderItem = OrderItem.objects.all()
         serializer = OrderItemSerializer(orderItem, many = True)
@@ -70,4 +72,12 @@ class OrderItemView(APIView):
         return Response({'status': 403, 'payload': order_item_serializer.data, 'message': "failed"})
 
 
-                
+class OrderTrackView(APIView):
+
+    def get(self, request):
+        transaction_id = request.data.get('transaction_id')
+        try:
+            order = Order.objects.get(transaction_id = transaction_id)
+            return Response({'order_status' : order.order_status})
+        except Order.DoesNotExist:
+            return Response({'order_status' : 'Invalid'})
