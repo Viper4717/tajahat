@@ -86,7 +86,7 @@ function Home() {
                         </figure>
                     </div>
                     <div className="homeBodyText" data-aos="fade-right">
-                    Available Mangoes:
+                    Mangoes provided by us:
                     <ul>
                         <li>Khirsapat</li>
                         <li>Lengra</li>
