@@ -10,7 +10,7 @@ from rest_framework.permissions import IsAdminUser
 # Create your views here.
 class ListProduct(APIView):
 
-    permission_classes = [IsAdminUser]
+    # permission_classes = [IsAdminUser]
 
     def get(self,request,format=None):
         products=Product.objects.all()

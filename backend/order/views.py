@@ -48,33 +48,9 @@ class OrderView(APIView):
             return Response({'message': 'successfull', 'payload': order.data})
         
         return Response({'message': '403'})
-
-
-
-
-class OrderItemView(APIView):
-
-    permission_classes= [IsAdminUser]
-
-    def get(self, request):
-        orderItem = OrderItem.objects.all()
-        serializer = OrderItemSerializer(orderItem, many = True)
-        return Response(serializer.data)
-
-    def post(self, request):
-        order_item_serializer = OrderItemSerializer(data = request.data)
-        if order_item_serializer.is_valid:
-            if(int(order_item_serializer.validated_data.get('quantity')) >= 10):
-                order_item_serializer.save()
-                return Response({'status': 200, 'payload': order_item_serializer.data, 'message': "successful"})
-            else:
-                return Response({'message': "not enough order quantity"})
-        return Response({'status': 403, 'payload': order_item_serializer.data, 'message': "failed"})
-
-
 class OrderTrackView(APIView):
 
-    def get(self, request):
+    def post(self, request):
         transaction_id = request.data.get('transaction_id')
         try:
             order = Order.objects.get(transaction_id = transaction_id)
