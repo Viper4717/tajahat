@@ -87,7 +87,7 @@ function Home() {
                         to chemical pesticides. Bagging prevents insect pests, especially fruit flies from finding and damaging the fruits. The bag provides
                         physical protection from mechanical injuries (scars and scratches) and prevents female flies' laying activities, latex burns, and fungal
                         spots on the fruits. Although laborious, it is cheaper, safer, easier to do, and gives us a more reliable estimate of our projected harvest.
-                        Which implies the product to be 100% Organic
+                        Which implies the product to be 100% organic.
                     </div>
                     <div className="homeBodyImageDivRight" data-aos="fade-left">
                         <figure className='figureDiv'>
