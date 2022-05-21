@@ -69,12 +69,36 @@ function Home() {
                         />
                     </div>
                     <div className="homeBodyText" data-aos="fade-left">
-                    We are Tajahat, an organic marketplace vowed to supply fresh and authentic foods to our valuable customers.
-                    We are involved in mango farming in Chapainawabganj for four generations. In the first attempt, we've decided
-                    to supply the premium quality fresh mangoes from our orchards. Please stay with us for authentic taste and free from adulteration.
+                        We are Tajahat, an organic marketplace vowed to supply fresh and authentic foods to our valuable customers.
+                        We are involved in mango farming in Chapainawabganj for four generations. In the first attempt, we've decided
+                        to supply the premium quality fresh mangoes from our orchards. Please stay with us for authentic taste and free from adulteration.
                     </div>
                 </div>
                 <div className="homeBody">
+                    <div className="hiddenHomeBodyImageDiv" data-aos="fade-right">
+                        <img
+                        className="homeImage"
+                        src={homeImage1}
+                        alt="mango"
+                        />
+                    </div>
+                    <div className="homeBodyText" data-aos="fade-right">
+                        Mango Growing Bags, also named as Mango Protection Bags, Bagging mango on the tree is an organic method and an effective alternative
+                        to chemical pesticides. Bagging prevents insect pests, especially fruit flies from finding and damaging the fruits. The bag provides
+                        physical protection from mechanical injuries (scars and scratches) and prevents female flies' laying activities, latex burns, and fungal
+                        spots on the fruits. Although laborious, it is cheaper, safer, easier to do, and gives us a more reliable estimate of our projected harvest.
+                        Which implies the product to be 100% Organic
+                    </div>
+                    <div className="homeBodyImageDivRight" data-aos="fade-left">
+                        <figure className='figureDiv'>
+                            <img
+                            className="homeImage"
+                            src={homeImage2}
+                            alt="mango"
+                            />
+                            <figcaption>Organic Farming</figcaption>
+                        </figure>
+                    </div>
                     <div className="hiddenHomeBodyImageDiv" data-aos="fade-left">
                         <figure className='figureDiv'>
                             <img
@@ -85,7 +109,8 @@ function Home() {
                             <figcaption>Organic Farming</figcaption>
                         </figure>
                     </div>
-                    <div className="homeBodyText" data-aos="fade-right">
+                </div>
+                <div className="fullHomeBodyText" data-aos="fade-right">
                     Mangoes provided by us:
                     <ul>
                         <li>Khirsapat</li>
@@ -98,17 +123,6 @@ function Home() {
                         <li>Lokkhonbhog</li>
                         <li>Guti</li>
                     </ul>
-                    </div>
-                    <div className="homeBodyImageDivRight" data-aos="fade-left">
-                        <figure className='figureDiv'>
-                            <img
-                            className="homeImage"
-                            src={homeImage2}
-                            alt="mango"
-                            />
-                            <figcaption>Organic Farming</figcaption>
-                        </figure>
-                    </div>
                 </div>
                 <div className="orderButtonDiv">
                     <Button className="orderButton" variant="custom" as={Link} to="/order">

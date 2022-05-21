@@ -45,6 +45,26 @@ figcaption {
     font-size: 1.5em;
     width: 50%;
 }
+.fullHomeBodyText{
+    margin-top: 50px;
+    font-size: 1.5em;
+    text-align: center;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #eef1d4;
+}
+  
+li{
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
 .orderButtonDiv{
     margin-top: 50px;
     text-align: center;
@@ -90,7 +110,7 @@ figcaption {
     }
     .homeImage{
         width: 100%;
-        height: 300px;
+        height: auto;
     }
     figcaption {
         font-size: 1em !important;
@@ -100,6 +120,11 @@ figcaption {
     .homeBodyText{
         font-size: 1em;
         width: 100%;
+        padding: 10px;
+    }
+    .fullHomeBodyText{
+        margin-top: 0px;
+        font-size: 1em;
         padding: 10px;
     }
     .orderButtonDiv{
