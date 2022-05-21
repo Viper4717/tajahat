@@ -96,7 +96,12 @@ function Track() {
                             </Form.Group>
                         </Form>
                     </div>
-                    {orderStatus != null &&
+                    {(orderStatus != null && orderStatus==="Invalid") &&
+                    <div className="invalidTransactionIdDiv">
+                        No order placed with transaction ID: <b>{textTransactionId}</b>
+                    </div>
+                    }
+                    {(orderStatus != null && orderStatus!="Invalid") &&
                     <div>
                         <div className="transactionIdDiv">
                             Transaction ID: <b>{textTransactionId}</b> <br/>
