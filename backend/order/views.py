@@ -43,11 +43,15 @@ class OrderView(APIView):
             products = Product.objects.get(id = item['id'])
             order_item_obj = OrderItem(order_id=item['order_id'], product=products, amount = item['amount'], price= item['price'])
             order_item_obj.save()
+            products.quantity = products.quantity - item['amount']
+            products.save()
         
         if flag==0:
             return Response({'message': 'successfull', 'payload': order.data})
         
         return Response({'message': '403'})
+
+
 class OrderTrackView(APIView):
 
     def post(self, request):
