@@ -12,7 +12,7 @@ var dummyItems = [
         "itemName": "Fajli",
         "itemPrice": "200",
         "itemImgPath": cardMangoImage,
-        "itemAvailability": true,
+        "itemAvailableQuantity": 50,
         "itemAmount" : 5,
     },
     {
@@ -20,7 +20,7 @@ var dummyItems = [
         "itemName": "Lengra",
         "itemPrice": "400",
         "itemImgPath": cardMangoImage,
-        "itemAvailability": true,
+        "itemAvailableQuantity": 50,
         "itemAmount" : 5,
     },
     {
@@ -28,7 +28,7 @@ var dummyItems = [
         "itemName": "Himshagor",
         "itemPrice": "400",
         "itemImgPath": cardMangoImage,
-        "itemAvailability": false,
+        "itemAvailableQuantity": 50,
         "itemAmount" : 5,
     },
     {
@@ -36,7 +36,7 @@ var dummyItems = [
         "itemName": "Mohonbhog",
         "itemPrice": "400",
         "itemImgPath": cardMangoImage,
-        "itemAvailability": true,
+        "itemAvailableQuantity": 50,
         "itemAmount" : 5,
     },
     {
@@ -44,7 +44,7 @@ var dummyItems = [
         "itemName": "Gopalbhog",
         "itemPrice": "400",
         "itemImgPath": cardMangoImage,
-        "itemAvailability": true,
+        "itemAvailableQuantity": 50,
         "itemAmount" : 5,
     },
     {
@@ -52,7 +52,7 @@ var dummyItems = [
         "itemName": "Aamrupali",
         "itemPrice": "400",
         "itemImgPath": cardMangoImage,
-        "itemAvailability": true,
+        "itemAvailableQuantity": 50,
         "itemAmount" : 5,
     },
     {
@@ -60,7 +60,7 @@ var dummyItems = [
         "itemName": "Khirsapat",
         "itemPrice": "400",
         "itemImgPath": cardMangoImage,
-        "itemAvailability": false,
+        "itemAvailableQuantity": 50,
         "itemAmount" : 5,
     },
     {
@@ -68,7 +68,7 @@ var dummyItems = [
         "itemName": "Ashhwina",
         "itemPrice": "400",
         "itemImgPath": cardMangoImage,
-        "itemAvailability": true,
+        "itemAvailableQuantity": 50,
         "itemAmount" : 5,
     },
     {
@@ -76,7 +76,7 @@ var dummyItems = [
         "itemName": "Khisanbogh",
         "itemPrice": "400",
         "itemImgPath": cardMangoImage,
-        "itemAvailability": false,
+        "itemAvailableQuantity": 50,
         "itemAmount" : 5,
     },
     {
@@ -84,7 +84,7 @@ var dummyItems = [
         "itemName": "Kuapahari",
         "itemPrice": "400",
         "itemImgPath": cardMangoImage,
-        "itemAvailability": true,
+        "itemAvailableQuantity": 50,
         "itemAmount" : 5,
     },
 ]
@@ -108,7 +108,7 @@ function loadItems(cart, setItems, setLoading){
             itemImgPath: (item.img? serverUrl+item.img : cardMangoImage),
             // itemImgPath: cardMangoImage,
             itemPrice: item.price,
-            itemAvailability: item.availability,
+            itemAvailableQuantity: item.quantity,
             itemAmount : 5,
         }));
         if(cart != null && cart.length > 0){
@@ -148,7 +148,7 @@ function Order() {
             <div className="orderBody">
                 {items.map(item => (
                     <ItemCard itemId={item.itemId} itemImgPath={item.itemImgPath} itemName={item.itemName}
-                    itemPrice={item.itemPrice} itemAvailability={item.itemAvailability} itemAmount={item.itemAmount} />
+                    itemPrice={item.itemPrice} itemAvailableQuantity={item.itemAvailableQuantity} itemAmount={item.itemAmount} />
                 ))}
             </div>
             }

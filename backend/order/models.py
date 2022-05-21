@@ -11,8 +11,9 @@ from django.utils import timezone
 # Create your models here.
 
 STATUS=[
-    ('processing','processing'),
-    ('complete','complete'),
+    ('Processing','Processing'),
+    ('Shipping','Shipping'),
+    ('Delivered','Delivered'),
 ]
 
 
@@ -21,7 +22,7 @@ class Order(models.Model):
     name = models.CharField(max_length=20, null=True)
     address = models.CharField(max_length=100)
     phone = models.CharField(max_length=20)
-    order_status = models.CharField(max_length = 20,choices=STATUS, default='processing')
+    order_status = models.CharField(max_length = 20,choices=STATUS, default='Processing')
     confirmation_status = models.BooleanField(default=False)
     total_amount = models.IntegerField(default=20)
     total_price = models.FloatField()

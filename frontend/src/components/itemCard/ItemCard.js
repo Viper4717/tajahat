@@ -3,7 +3,7 @@ import './ItemCard.css';
 import { Button, Card } from 'react-bootstrap';
 import { CartContext } from '../../Contexts';
 
-function ItemCard({itemId, itemImgPath, itemName, itemPrice, itemAvailability, itemAmount}) {
+function ItemCard({itemId, itemImgPath, itemName, itemPrice, itemAvailableQuantity, itemAmount}) {
 
     const [cart, setCart] = useContext(CartContext);
     const [amount, setAmount] = useState();
@@ -32,7 +32,7 @@ function ItemCard({itemId, itemImgPath, itemName, itemPrice, itemAvailability, i
     }
 
     const increaseQty = () =>{
-        if(amount < 99){
+        if(amount+5 <= itemAvailableQuantity){
             const newAmount = amount + 5;
             modifyAmount(newAmount);
         }
@@ -67,25 +67,25 @@ function ItemCard({itemId, itemImgPath, itemName, itemPrice, itemAvailability, i
                     <Card.Text className="itemPrice">
                         {itemPrice} BDT per kg
                     </Card.Text>
-                    {itemAvailability === false &&
+                    {itemAvailableQuantity === 0 &&
                     <Card.Text className="itemAvailability">
                         Not Available
                     </Card.Text>
                     }
                 </div>
                 <div className="itemCardQtyBg">
-                    <Button className="qtyBtn" variant="light" onClick={decreaseQty} disabled={itemAvailability===false}>-</Button>
+                    <Button className="qtyBtn" variant="light" onClick={decreaseQty} disabled={itemAvailableQuantity===0}>-</Button>
                     <div className="cartItemQtyDiv"> {amount} kg </div>
-                    <Button className="qtyBtn" variant="light" onClick={increaseQty} disabled={itemAvailability===false}>+</Button>
+                    <Button className="qtyBtn" variant="light" onClick={increaseQty} disabled={itemAvailableQuantity===0}>+</Button>
                 </div>
                 {cart.some(item => item.id === itemId) ?
                     <Button className="addToCartButton" variant="remove"
-                    onClick={removeFromCart} disabled={itemAvailability===false}>
+                    onClick={removeFromCart} disabled={itemAvailableQuantity===0}>
                         Remove from Cart
                     </Button>
                     :
                     <Button className="addToCartButton" variant="custom"
-                    onClick={addToCart} disabled={itemAvailability===false}>
+                    onClick={addToCart} disabled={itemAvailableQuantity===0}>
                         Add to Cart
                     </Button>
                 }

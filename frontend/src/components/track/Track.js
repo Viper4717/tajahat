@@ -2,10 +2,111 @@ import React, { useState, useEffect } from 'react';
 import './Track.css';
 import { Button, Container, Spinner, Form, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { ProgressBar, Step } from "react-step-progress-bar";
 import Axios from 'axios';
 import { serverUrl } from '../../util';
 
 function Track() {
+
+    // const orderSteps = [
+    //     {
+    //       status: "Processing"
+    //     },
+    //     {
+    //       status: "Shipping"
+    //     },
+    //     {
+    //       status: "Delivered"
+    //     },
+    // ];
+    
+    // const getStepPosition = (orderStatus) => {
+    //     return orderSteps.findIndex(({ status }) => status === orderStatus);
+    // };
+    
+    //   return (
+    //     <>
+    //       <div style={{ margin: 50 }}>
+    //         <ProgressBar
+    //           width={500}
+    //           percent={
+    //             100 *
+    //               ((getStepPosition(orderStatus) + 1) / (orderSteps.length - 1)) -
+    //             1
+    //           }
+    //           filledBackground="linear-gradient(to right, #41ad49, #41ad49)"
+    //         >
+    //           {steps.map((step, index, arr) => {
+    //             return (
+    //               <Step
+    //                 // position={100 * (index / arr.length)}
+    //                 transition="scale"
+    //                 children={({ accomplished }) => (
+    //                   <div
+    //                     style={{
+    //                       display: "flex",
+    //                       alignItems: "center",
+    //                       justifyContent: "center",
+    //                       borderRadius: "50%",
+    //                       width: 20,
+    //                       height: 20,
+    //                       color: "black",
+    //                       backgroundColor: accomplished ? "green" : "gray"
+    //                     }}
+    //                   >
+    //                     <br />
+    //                     <br />
+    //                     <br />
+    //                     {step.status}
+    //                   </div>
+    //                 )}
+    //               />
+    //             );
+    //           })}
+    //         </ProgressBar>
+    //       </div>
+    //       <br />
+    //       <div style={{ margin: 50 }}>
+    //         <ProgressBar
+    //           width={500}
+    //           percent={
+    //             100 *
+    //               ((getStepPosition(transfer.status) + 1) / (steps.length - 1)) -
+    //             1
+    //           }
+    //           filledBackground="linear-gradient(to right, #41ad49, #41ad49)"
+    //         >
+    //           {steps.map((step, index, arr) => {
+    //             return (
+    //               <Step
+    //                 // position={100 * (index / arr.length)}
+    //                 transition="scale"
+    //                 children={({ accomplished }) => (
+    //                   <div
+    //                     style={{
+    //                       display: "flex",
+    //                       alignItems: "center",
+    //                       justifyContent: "center",
+    //                       borderRadius: "50%",
+    //                       width: 20,
+    //                       height: 20,
+    //                       color: "black",
+    //                       backgroundColor: accomplished ? "green" : "gray"
+    //                     }}
+    //                   >
+    //                     <br />
+    //                     <br />
+    //                     <br />
+    //                     {step.status}
+    //                   </div>
+    //                 )}
+    //               />
+    //             );
+    //           })}
+    //         </ProgressBar>
+    //       </div>
+    //     </>
+    //   );
 
     const [error, setError] = useState();
     const [loading, setLoading] = useState(false);
@@ -40,7 +141,7 @@ function Track() {
             .then(({data: res}) => {
                 setLoading(false);
                 setTextTransactionId(transactionId);
-                setOrderStatus(res.status);
+                setOrderStatus(res.order_status);
             })
             .catch((error) => {
                 setLoading(false);

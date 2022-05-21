@@ -142,4 +142,5 @@ CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ALLOWED_ORIGINS = [
     'https://tajahat.com',
+    'http://localhost:3000',
 ]

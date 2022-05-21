@@ -6,7 +6,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ['id', 'name', 'price', 'img','availability']
+        fields = ['id', 'name', 'price', 'img', 'quantity']
 
     # Type= serializers.CharField(max_length=20, choices=TYPE_CHOICES, default='Lengra')
     # Quantity= serializers.IntegerField()
