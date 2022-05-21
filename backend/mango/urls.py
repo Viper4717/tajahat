@@ -19,6 +19,10 @@ from django.urls import include,path
 from django.conf.urls.static import static
 from django.conf import settings
 
+admin.site.site_header = "Tajahat Administration"
+admin.site.site_title = "Tajahat Admin Portal"
+admin.site.index_title = "Welcome to Tajahat Admin Portal"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('product/', include('product.urls') ),
