@@ -65,6 +65,7 @@ function Track() {
                     orderPhone: res.phone,
                     orderAddress: res.address,
                     orderTotalCost: res.total_price,
+                    orderItems: res.order_item,
                 };
                 setLoading(false);
                 setTextTransactionId(transactionId);
@@ -117,6 +118,12 @@ function Track() {
                             <b>Phone:</b> {orderInfo.orderPhone} <br/>
                             <b>Address:</b> {orderInfo.orderAddress} <br/>
                             <b>Total Cost:</b> {orderInfo.orderTotalCost} BDT <br/>
+                            <b>Ordered Items:</b><br/>
+                            {orderInfo.orderItems.map(item => (
+                                <div>
+                                {item.product.name} ({item.product.price} BDT per kg) - <b>{item.amount}kg</b> <br/>
+                                </div>
+                            ))}
                         </div>
                         <div className='progressBarDiv'>
                             Status:
