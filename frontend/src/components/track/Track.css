@@ -6,9 +6,6 @@
     font-size: 1.25em;
     color: red;
 }
-.transactionIdDiv{
-    font-size: 1.25em;
-}
 .progressBarDiv{
     font-size: 1.25em;
     margin-top: 20px;
@@ -41,9 +38,6 @@
 
 @media screen and (max-width: 768px){
     .invalidTransactionIdDiv{
-        font-size: 1em;
-    }
-    .transactionIdDiv{
         font-size: 1em;
     }
     .progressBarDiv{

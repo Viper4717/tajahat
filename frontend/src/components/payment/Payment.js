@@ -85,9 +85,9 @@ function Payment() {
                         Bkash
                     </h5>
                     <div className="shippingDetailsText">
-                        Name: {shippingInfo.name} <br/>
-                        Phone: {shippingInfo.phone} <br/>
-                        Address: {shippingInfo.address} <br/>
+                        <b>Name:</b> {shippingInfo.name} <br/>
+                        <b>Phone:</b> {shippingInfo.phone} <br/>
+                        <b>Address:</b> {shippingInfo.address} <br/>
                     </div>
                     <div className="instructionText">
                         Your Total Cost: <b> {productCost+shippingCost+packagingCost} BDT </b> <br/>

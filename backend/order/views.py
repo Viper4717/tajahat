@@ -58,6 +58,7 @@ class OrderTrackView(APIView):
         transaction_id = request.data.get('transaction_id')
         try:
             order = Order.objects.get(transaction_id = transaction_id)
-            return Response({'order_status' : order.order_status})
+            serializer = OrderTrackSerializer(order)
+            return Response(serializer.data)
         except Order.DoesNotExist:
             return Response({'order_status' : 'Invalid'})

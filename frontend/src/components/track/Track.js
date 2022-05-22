@@ -33,6 +33,7 @@ function Track() {
     const [transactionId, setTransactionId] = useState();
     const [textTransactionId, setTextTransactionId] = useState();
     const [orderStatus, setOrderStatus] = useState(null);
+    const [orderInfo, setOrderInfo] = useState(null);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -59,8 +60,14 @@ function Track() {
             }
             Axios.post(`${serverUrl}/order/track/`, checkStatusObject)
             .then(({data: res}) => {
+                const newOrderInfo = {
+                    orderName: res.name,
+                    orderPhone: res.phone,
+                    orderAddress: res.address
+                };
                 setLoading(false);
                 setTextTransactionId(transactionId);
+                setOrderInfo(newOrderInfo);
                 setOrderStatus(res.order_status);
             })
             .catch((error) => {
@@ -103,8 +110,11 @@ function Track() {
                     }
                     {(orderStatus != null && orderStatus!="Invalid") &&
                     <div>
-                        <div className="transactionIdDiv">
-                            Transaction ID: <b>{textTransactionId}</b> <br/>
+                        <div className="shippingDetailsText">
+                            <b>Transaction ID:</b> {textTransactionId} <br/>
+                            <b>Name:</b> {orderInfo.orderName} <br/>
+                            <b> Phone:</b> {orderInfo.orderPhone} <br/>
+                            <b>Address:</b> {orderInfo.orderAddress} <br/>
                         </div>
                         <div className='progressBarDiv'>
                             Status:
