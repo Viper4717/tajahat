@@ -110,7 +110,7 @@ function Shipping() {
                             Back to Cart
                         </Button>
                         <Button className="continueToConfirmBtn" variant="custom" type="submit" >
-                            Continue
+                            Continue to Payment
                         </Button>
                     </div>
                 </Form>
