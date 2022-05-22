@@ -108,7 +108,7 @@ function Cart() {
                         </Button>
                         <Button className="continueToShippingBtn" variant="custom" disabled={minOrderError || maxItemError}
                             as={Link} to="/shipping">
-                                Continue
+                                Checkout
                         </Button>
                     </div>
                 </div>
