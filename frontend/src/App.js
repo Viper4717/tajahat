@@ -50,7 +50,7 @@ function App() {
                     <Route exact path="/cart" element={<Cart/>}/>
                     <Route exact path="/shipping" element={ (cart != null) && (cart.length) ? <Shipping/> : <Navigate to="/cart" /> } />
                     <Route exact path="/payment" element={ (cart != null) && (cart.length) ? <Payment/> : <Navigate to="/cart" /> } />
-                    <Route exact path="/success" element={ orderSuccess ? <Success/> : <Navigate to="/cart" /> } />
+                    <Route exact path="/success/*" element={ orderSuccess ? <Success/> : <Navigate to="/cart" /> } />
                     <Route path="*" element={<Navigate to="/"/>} />
                 </Routes>
                 <Footer/>

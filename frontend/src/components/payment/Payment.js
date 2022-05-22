@@ -56,7 +56,7 @@ function Payment() {
             .then(({data: res}) => {
                 setLoading(false);
                 setOrderSuccess(true);
-                navigate("/success");
+                navigate(`/success/${transactionId}`);
             })
             .catch((error) => {
                 setLoading(false);

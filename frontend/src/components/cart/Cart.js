@@ -16,7 +16,8 @@ function Cart() {
         cart.reduce((acc, item) => acc + item.amount, 0));
     const shippingCost = totalAmount*15;
     const packagingCost = totalAmount*6.;
-    const [incorrectOrder, setInCorrectOrder] = useState(true);
+    const [minOrderError, setMinOrderError] = useState(true);
+    const [maxItemError, setMaxItemError] = useState(true);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -28,10 +29,16 @@ function Cart() {
         const newTotalAmount = cart.reduce((acc, item) => acc + item.amount, 0);
         setTotalAmount(newTotalAmount);
         if(newTotalAmount < 20){
-            setInCorrectOrder(true);
+            setMinOrderError(true);
         }
         else{
-            setInCorrectOrder(false);
+            setMinOrderError(false);
+        }
+        if(newTotalAmount === 20 && cart.length > 3){
+            setMaxItemError(true);
+        }
+        else{
+            setMaxItemError(false);
         }
     }, [cart])
 
@@ -85,16 +92,21 @@ function Cart() {
                     <div className="totalBillDiv">
                         Total Cost: {productCost+shippingCost+packagingCost} BDT <br/>
                     </div>
-                    {incorrectOrder &&
+                    {minOrderError &&
                         <div className="incorrectOrderDiv">
-                            Minimum order is 20kg
+                            Minimum order is 20kg.
+                        </div>
+                    }
+                    {maxItemError &&
+                        <div className="incorrectOrderDiv">
+                            Maximum 3 types of items allowed with a 20kg order.
                         </div>
                     }
                     <div className="bottomButtonDiv">
                         <Button className="backToLibraryBtn" variant="custom" as={Link} to="/order">
                             Back to Order
                         </Button>
-                        <Button className="continueToShippingBtn" variant="custom" disabled={incorrectOrder}
+                        <Button className="continueToShippingBtn" variant="custom" disabled={minOrderError || maxItemError}
                             as={Link} to="/shipping">
                                 Continue
                         </Button>
