@@ -6,6 +6,13 @@
     font-size: 1.25em;
     color: red;
 }
+.orderDetailsText{
+    padding: 10px;
+    text-align: left !important;
+    font-size: 1.25em;
+    line-height: 2;
+    background-color: #eef1d4;
+}
 .progressBarDiv{
     font-size: 1.25em;
     margin-top: 20px;
@@ -38,6 +45,9 @@
 
 @media screen and (max-width: 768px){
     .invalidTransactionIdDiv{
+        font-size: 1em;
+    }
+    .orderDetailsText{
         font-size: 1em;
     }
     .progressBarDiv{

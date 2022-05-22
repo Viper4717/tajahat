@@ -19,4 +19,4 @@ class OrderItemSerializer(serializers.ModelSerializer):
 class OrderTrackSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
-        fields = ['name', 'phone', 'address', 'order_status']
+        fields = ['name', 'phone', 'address', 'order_status', 'total_price']

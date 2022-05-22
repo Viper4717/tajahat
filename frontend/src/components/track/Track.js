@@ -63,7 +63,8 @@ function Track() {
                 const newOrderInfo = {
                     orderName: res.name,
                     orderPhone: res.phone,
-                    orderAddress: res.address
+                    orderAddress: res.address,
+                    orderTotalCost: res.total_price,
                 };
                 setLoading(false);
                 setTextTransactionId(transactionId);
@@ -110,11 +111,12 @@ function Track() {
                     }
                     {(orderStatus != null && orderStatus!="Invalid") &&
                     <div>
-                        <div className="shippingDetailsText">
+                        <div className="orderDetailsText">
                             <b>Transaction ID:</b> {textTransactionId} <br/>
                             <b>Name:</b> {orderInfo.orderName} <br/>
-                            <b> Phone:</b> {orderInfo.orderPhone} <br/>
+                            <b>Phone:</b> {orderInfo.orderPhone} <br/>
                             <b>Address:</b> {orderInfo.orderAddress} <br/>
+                            <b>Total Cost:</b> {orderInfo.orderTotalCost} BDT <br/>
                         </div>
                         <div className='progressBarDiv'>
                             Status:
